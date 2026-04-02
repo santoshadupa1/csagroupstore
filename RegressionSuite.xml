@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+  <test thread-count="5" name="LoginTest">
+    <classes>
+      <class name="org.csagroup.tests.LoginTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5" name="AddToCartTest">
+    <classes>
+      <class name="org.csagroup.tests.AddToCart_CheckOutTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5" name="CreateAccountTest">
+    <classes>
+      <class name="org.csagroup.tests.CreateAccountTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
