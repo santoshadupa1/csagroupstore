@@ -51,4 +51,16 @@ public interface CSALocators {
         public String PrivacyCheckbox ="//label[@class='cc_privacyAccept_flag_label']";
         public String CSAGroupCheckbox = "//label[@class='cc_emailOptIn_flag_label']";
         public String CreateAccountSubmitBtn = ".//*[@id='btn-registration-submit']";
+        
+        // CSA OnDemand Page
+        public String OnDemandLink = "//*[@id='menu-store-primary-header-1']//a";
+        public String CSAlogo = "//div[@class='header-logo']";
+        public String CartIcon = "//div[@class='header-action cart-action']//a";
+        public String LibrarySearchBox = "//input[@placeholder='Search Products']";
+        public String DocumentLibraryLink = "//a[@aria-label='my-library']";
+        public String SearchDocumentLibrary = "//*[@placeholder='Search Document Library']";
+        public String DocumentLibraryItems = "//*[@class='document-product-parent']/div[1]";
+        public String FavoriteHeartIcon = ".//*[@title='Add to Favourites']";
+        public String DownloadPDFLink = "(.//*[@class='mylib-download-link'])[1]";
+        public String ViewOnlineButton = "//*[@class='panel-collapse collapse mylib-collapse in']/div/div[1]/div/a[2]";
 }

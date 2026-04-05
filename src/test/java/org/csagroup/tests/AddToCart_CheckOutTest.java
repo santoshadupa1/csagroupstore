@@ -17,9 +17,20 @@ public class AddToCart_CheckOutTest extends DriverManager {
 	{
 		//Login to the Application
 	    lp.clickOnLogin();		
-	    lp.enterLoginCredentials(prop.getProperty("username"), prop.getProperty("password"));
+	    String environment = prop.getProperty("env").split("#")[0].trim().toLowerCase();
+	    switch(environment)
+	    {
+		    case "stage":
+		    	lp.enterLoginCredentials(prop.getProperty("stageUsername"), prop.getProperty("stagePassword"));
+	            break;
+	        case "prod":
+	        	lp.enterLoginCredentials(prop.getProperty("username"), prop.getProperty("password"));
+	            break;
+	        default:
+	            throw new RuntimeException("Invalid environment: " + environment);	         
+	    }
 	    lp.waitForPageToLoad();
-	    lp.verifyloginUser();
+	    //lp.verifyloginUser("Testfeb5p");
 	    // Search and Add Product to Cart
 		productsPage = new ProductsPage(driver);
 		productsPage.waitForPageLoaded();

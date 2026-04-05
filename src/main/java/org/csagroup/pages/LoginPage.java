@@ -122,14 +122,15 @@ public class LoginPage extends WebActions implements CSALocators{
 		}
 	}
 	
-	public void verifyloginUser()
+	public void verifyloginUser(String expectedUsername)
 	{
-		String expectedUsername = "Testfeb5p";
+		//String expectedUsername = "Testfeb5p";
 		By usernametext = By.xpath("(//*[@class='csa-nav-link csa-nav-menu login_nav']/span[text()='"+expectedUsername+"'])[2]");
+		waitForElementToAppear(usernametext);
 		String actualUsername = readText(usernametext).trim();
 		Assert.assertTrue(actualUsername.contains(expectedUsername), "Logged in username does not match expected username.");
 		logger.info("Logged in Usernane is verified successfully");
-		System.out.println("Logged in Usernane is verified successfully");
+		System.out.println("Logged in Usernane is verified successfully: " +actualUsername);
 	}
 	
 	public void securityCodeVerification(String code)
@@ -143,7 +144,6 @@ public class LoginPage extends WebActions implements CSALocators{
 	 public void handleSecurityCodeIfPresent(String code) {
 
 	        try {
-	            //String code = prop.getProperty("securityCode");
 	            writeText(securitycode, code);
 	            System.out.println("Security code entered: " + code);
 	            javaScriptClick(securitycodeSubmit);
@@ -151,5 +151,5 @@ public class LoginPage extends WebActions implements CSALocators{
 	        } catch (TimeoutException e) {
 	            System.out.println("Security code not displayed → skipping");
 	        }
-	    }
+	 }
 }
