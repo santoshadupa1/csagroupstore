@@ -105,7 +105,7 @@ public class DriverManager {
 		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void setup() throws IOException {
 
 	    driver = DriverManager.getDriver();
@@ -114,10 +114,8 @@ public class DriverManager {
 	    lp.waitForPageToLoad();
 	    lp.clickAcceptAllCookies();
 
-
          String environment = System.getProperty("env") != null ? System.getProperty("env") : prop.getProperty("env");
          environment = environment.split("#")[0].trim().toLowerCase();
-
 
 	    switch(environment)
 	    {
@@ -132,8 +130,12 @@ public class DriverManager {
 	    }
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
-	    driver.quit();
+	    if (DriverManager.getDriver() != null) {
+	        DriverManager.getDriver().quit();
+	        // 🔥 CRITICAL
+	        DriverManager.unload(); 
+	    }
 	}
 }
