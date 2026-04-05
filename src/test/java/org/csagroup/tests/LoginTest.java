@@ -11,10 +11,22 @@ public class LoginTest extends DriverManager {
 	{
 		lp = new LoginPage(driver);
 		lp.waitForPageLoaded();
-		lp.clickOnLogin();		
-	    lp.enterLoginCredentials(prop.getProperty("username"), prop.getProperty("password"));
-	    lp.waitForPageToLoad();
-	    lp.verifyloginUser();
+		lp.clickOnLogin();
+		String environment = prop.getProperty("env").split("#")[0].trim().toLowerCase();
+	    switch(environment)
+	    {
+		    case "stage":
+		    	lp.enterLoginCredentials(prop.getProperty("stageUsername"), prop.getProperty("stagePassword"));
+		    	lp.verifyloginUser(prop.getProperty("stageUser"));
+	            break;
+	        case "prod":
+	        	lp.enterLoginCredentials(prop.getProperty("username"), prop.getProperty("password"));
+	        	lp.verifyloginUser(prop.getProperty("prodUser"));
+	            break;
+	        default:
+	            throw new RuntimeException("Invalid environment: " + environment);	         
+	    }
+	    
 	}
 
 }

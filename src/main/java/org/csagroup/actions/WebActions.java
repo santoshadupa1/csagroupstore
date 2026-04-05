@@ -6,10 +6,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.Stack;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -57,7 +59,7 @@ public class WebActions {
 
     PropertyReader pr = new PropertyReader();
   //  Screenshot screenhsot;
-
+    Stack<String> tabStack = new Stack<>();
     // Constructor: initialize reusable helpers once per page object
     public WebActions(WebDriver driver) {
         this.driver = driver;
@@ -229,6 +231,20 @@ public class WebActions {
             logger.debug("Could not highlight element {}: {}", elementBy, t.getMessage());
         }
     }
+    
+    public void highLightElement(WebElement element)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        for (int i = 0; i < 3; i++)
+        {
+            js.executeScript("arguments[0].style.border='3px solid red'", element);
+            sleepTime(2);
+            js.executeScript("arguments[0].style.border=''", element);
+            sleepTime(2);
+        }
+    }
+
 
     // Check alert present
     public boolean isAlertPresent() {
@@ -526,6 +542,40 @@ public class WebActions {
     // small sugar: return list of elements matching a locator (visible or not)
     public List<WebElement> safeFindElements(By by) {
         return driver.findElements(by);
+    }
+    
+    public void initializeTabStack() {
+        tabStack.clear();
+        tabStack.push(driver.getWindowHandle()); // parent tab
+    }
+    
+    public void switchToNewWindowTab() {
+
+        Set<String> oldHandles = new HashSet<>(tabStack);
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(d -> d.getWindowHandles().size() > tabStack.size());
+        Set<String> newHandles = driver.getWindowHandles();
+        newHandles.removeAll(oldHandles); // isolate new tab
+
+        for (String handle : newHandles) {
+            driver.switchTo().window(handle);
+            tabStack.push(handle);
+            break;
+        }
+    }
+
+    public void closeCurrentTabAndSwitchBack() {
+        driver.close();
+        tabStack.pop();
+        driver.switchTo().window(tabStack.peek());
+    }
+    
+    public boolean isDisplayed(By elementBy)
+    {
+    	waitForElementToAppear(elementBy);
+    	highLightElement(elementBy);
+    	boolean isDisplayed = driver.findElement(elementBy).isDisplayed();
+    	return isDisplayed;
     }
 
 }
