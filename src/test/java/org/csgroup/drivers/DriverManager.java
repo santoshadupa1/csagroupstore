@@ -138,4 +138,7 @@ public class DriverManager {
 	        DriverManager.unload(); 
 	    }
 	}
+	public static void unload() {
+          driver.remove(); // 🔥 THIS FIXES YOUR ISSUE
+    }
 }
