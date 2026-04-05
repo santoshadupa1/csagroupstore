@@ -10,132 +10,136 @@ import java.util.Properties;
 import org.csagroup.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.firefox.*;
+import org.openqa.selenium.support.ui.*;
+import org.testng.annotations.*;
 
-import com.aventstack.chaintest.plugins.ChainTestListener;
-
-//@Listeners(ChainTestListener.class)
 public class DriverManager {
 
-	    protected static WebDriver driver;
-	    public static Properties prop;
+    protected WebDriver driver;   // ❗ NOT static
+    public static Properties prop;
 
-	    protected LoginPage lp;
-	    public static WebDriver getDriver() throws IOException {
+    protected LoginPage lp;
 
-	        if (driver == null) {
+    public WebDriver getDriver() throws IOException {
 
-	            prop = new Properties();
-	            String filePath = System.getProperty("user.dir") +"/src/test/resources/configurations/config.properties";
+        prop = new Properties();
+        String filePath = System.getProperty("user.dir")
+                + "/src/test/resources/configurations/config.properties";
 
-	            FileInputStream fis = new FileInputStream(filePath);
-	            prop.load(fis);
+        FileInputStream fis = new FileInputStream(filePath);
+        prop.load(fis);
 
-	           // String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
-	            String rawBrowser = System.getProperty("browser") != null 
-	                    ? System.getProperty("browser") 
-	                    : prop.getProperty("browser");
+        String rawBrowser = System.getProperty("browser") != null
+                ? System.getProperty("browser")
+                : prop.getProperty("browser");
 
-	            String browserName = rawBrowser.toLowerCase().split("-")[0];   // chrome
-	            String mode = rawBrowser.toLowerCase().contains("headless") 
-	                    ? "headless" 
-	                    : "headed";
-	            switch (browserName) {
+        String browserName = rawBrowser.toLowerCase().split("-")[0];
+        String mode = rawBrowser.toLowerCase().contains("headless")
+                ? "headless"
+                : "headed";
 
-	                case "chrome":
-	                     ChromeOptions options = new ChromeOptions();
-					     Map<String, Object> prefs = new HashMap<>();
-					     prefs.put("credentials_enable_service", false);
-					     prefs.put("password_manager_enabled", false);
-					     Map<String, Object> profile = new HashMap<>();
-					     profile.put("password_manager_leak_detection", false);
-					     prefs.put("profile", profile);
-					    options.setExperimentalOption("prefs", prefs);					
-					    // 🔥 CRITICAL: Always apply in CI
-					    options.addArguments("--headless=new");
-					    options.addArguments("--no-sandbox");
-					    options.addArguments("--disable-dev-shm-usage");
-					    options.addArguments("--disable-gpu");
-					    options.addArguments("--window-size=1920,1080");				
-					    driver = new ChromeDriver(options);
-					    break;
-	                case "firefox":
-	                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-	                    if (mode.equals("headless")) {
-	                        firefoxOptions.addArguments("--headless");
-	                    }
-	                    driver = new FirefoxDriver(firefoxOptions);
-	                    break;
-	                default:
-	                    throw new RuntimeException("Invalid browser: " + browserName);
-	            }
-	            driver.manage().window().maximize();
-	            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	        }
-	        return driver;
-	    }
+        boolean isCI = System.getenv("CI") != null;
 
-	    public static String getURL() {
-	    	String env = System.getProperty("env") != null ? System.getProperty("env") : prop.getProperty("env");
-	    	env = env.split("#")[0].trim().toLowerCase();
-	        switch (env) {
-	            case "stage":
-	                return prop.getProperty("stageUrl");
-	            case "prod":
-	                return prop.getProperty("prodUrl");
-	            default:
-	                throw new RuntimeException("Invalid environment: " + env);
-	        }
-	    }
-	// For testing
-	public static void main(String[] args) throws IOException {
-		DriverManager.getDriver().get("https://b2buat-csastandards.cs93.force.com/store");
-	}
+        switch (browserName) {
 
-	protected void waitForVisibility(WebElement element) throws Error {
-		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
-	}
-	
-	@BeforeMethod(alwaysRun = true)
-	public void setup() throws IOException {
+            case "chrome":
 
-	    driver = DriverManager.getDriver();
-	    driver.get(DriverManager.getURL());
-	    lp = new LoginPage(driver);
-	    lp.waitForPageToLoad();
-	    lp.clickAcceptAllCookies();
+                ChromeOptions options = new ChromeOptions();
 
-         String environment = System.getProperty("env") != null ? System.getProperty("env") : prop.getProperty("env");
-         environment = environment.split("#")[0].trim().toLowerCase();
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("credentials_enable_service", false);
+                prefs.put("password_manager_enabled", false);
 
-	    switch(environment)
-	    {
-	        case "stage":
-	            lp.securityCodeVerification(prop.getProperty("securitycode"));
-	            break;
-	        case "prod":
-	            System.out.println("Prod env → skipping security code");
-	            break;
-	        default:
-	            throw new RuntimeException("Invalid environment: " + environment);
-	    }
-	}
+                Map<String, Object> profile = new HashMap<>();
+                profile.put("password_manager_leak_detection", false);
+                prefs.put("profile", profile);
 
-	@AfterMethod(alwaysRun = true)
-	public void tearDown() {
-	    if (DriverManager.getDriver() != null) {
-	        DriverManager.getDriver().quit();
-	        // 🔥 CRITICAL
-	        DriverManager.unload(); 
-	    }
-	}
+                options.setExperimentalOption("prefs", prefs);
+
+                // 🔥 CI-safe config
+                if (isCI || mode.equals("headless")) {
+                    options.addArguments("--headless=new");
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--disable-gpu");
+                    options.addArguments("--window-size=1920,1080");
+                }
+
+                driver = new ChromeDriver(options);
+                break;
+
+            case "firefox":
+
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+
+                if (isCI || mode.equals("headless")) {
+                    firefoxOptions.addArguments("--headless");
+                }
+
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
+
+            default:
+                throw new RuntimeException("Invalid browser: " + browserName);
+        }
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+
+        return driver;
+    }
+
+    public static String getURL() {
+
+        String env = System.getProperty("env") != null
+                ? System.getProperty("env")
+                : prop.getProperty("env");
+
+        env = env.trim().toLowerCase();
+
+        switch (env) {
+            case "stage":
+                return prop.getProperty("stageUrl");
+            case "prod":
+                return prop.getProperty("prodUrl");
+            default:
+                throw new RuntimeException("Invalid environment: " + env);
+        }
+    }
+
+    @BeforeMethod
+    public void setup() throws IOException {
+
+        driver = getDriver();
+        driver.get(getURL());
+
+        lp = new LoginPage(driver);
+        lp.waitForPageToLoad();
+        lp.clickAcceptAllCookies();
+
+        String env = System.getProperty("env") != null
+                ? System.getProperty("env")
+                : prop.getProperty("env");
+
+        env = env.trim().toLowerCase();
+
+        if (env.equals("stage")) {
+            lp.securityCodeVerification(prop.getProperty("securitycode"));
+        }
+    }
+
+    @AfterMethod
+    public void tearDown() {
+
+        if (driver != null) {
+            driver.quit();   // ✅ clean close per test
+        }
+    }
+
+    protected void waitForVisibility(WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(element));
+    }
 }
