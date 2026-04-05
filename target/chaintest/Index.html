@@ -19,9 +19,9 @@
         <span class="ms-3 fs-6">CSA Group Report</span>
       </div>
       <div>
-        <span class="badge badge-outline text-lg"><i class="bi bi-hourglass me-1"></i> 2m 4s</span>
-        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1"></i> Started 2026-04-03 12:04:15 pm</span>
-        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1"></i> Ended 2026-04-03 12:06:19 pm</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-hourglass me-1"></i> 16s</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1"></i> Started 2026-04-05 10:52:17 a.m.</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1"></i> Ended 2026-04-05 10:52:33 a.m.</span>
       </div>
       <div>
           <button role="button" id="sys-info" class="btn btn-outline-primary smaller" title="View System Info">
@@ -40,7 +40,7 @@
           <div class="col-4">
             <div class="card card-custom" style="height: 175px">
               <div class="card-header">
-                Suites
+                Classes
               </div>
               <div class="card-body d-flex justify-content-center" style="height: 90px;">
                 <div class="chart-view center" style="margin-left: -1rem;">
@@ -57,7 +57,7 @@
           <div class="col-4">
             <div class="card card-custom" style="height: 175px">
               <div class="card-header">
-                Classes
+                Methods
               </div>
               <div class="card-body d-flex justify-content-center" style="height: 90px;">
                 <div class="chart-view center" style="margin-left: -1rem;">
@@ -71,23 +71,34 @@
               </div>
             </div>
           </div>
-            <div class="col-4">
-              <div class="card card-custom" style="height: 175px">
-                <div class="card-header">
-                  Methods
-                </div>
-                <div class="card-body d-flex justify-content-center" style="height: 90px;">
-                  <div class="chart-view center" style="margin-left: -1rem;">
-                    <canvas id="stats3"></canvas>
+              <div class="col-4">
+                <div class="card card-custom" style="height: 175px">
+                  <div class="card-header mb-2">
+                    Summary
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col text-center">
+                        <label class="fs-10">Started</label>
+                        <p class="fw-semibold mb-0">
+                          2026-04-05 10:52:17 a.m.
+                        </p>
+                      </div>
+                      <div class="col border-start text-center">
+                        <label class="fs-10">Ended</label>
+                        <p class="fw-semibold mb-0">2026-04-05 10:52:33 a.m.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                        <div class="progress" role="progressbar" aria-label="Success example"
+                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar bg-success" style="width: 100%">100%</div>
+                        </div>
                   </div>
                 </div>
-                <div class="card-footer small">
-                  <span id="sp3">1</span> Passed,
-                  <span id="sf3">0</span> Failed,
-                  <span id="ss3">0</span> Skipped
-                </div>
               </div>
-            </div>
         </div>
       </div>
     </div>
@@ -118,11 +129,11 @@
             <div class="col-4">
               <h6 class="mb-3 testname passed">Default suite</h6>
               <div class="small">
-                <span class="badge badge-outline"><i class="bi bi-hourglass me-1"></i> 1m 54s</span>
+                <span class="badge badge-outline"><i class="bi bi-hourglass me-1"></i> 7s</span>
                 <span class="badge text-bg-info"><i class="bi bi-clock me-1"></i>
-                  2026-04-03 12:04:24 pm</span>
+                  2026-04-05 10:52:26 a.m.</span>
                 <span class="badge text-bg-warning"><i class="bi bi-clock me-1"></i>
-                  2026-04-03 12:06:19 pm</span>
+                  2026-04-05 10:52:33 a.m.</span>
               </div>
               
             </div>
@@ -135,24 +146,10 @@
                         <span class="ms-2">org.csagroup.tests.OnDemandTest</span>
                       </div>
                       <div>
-                        <span class="badge text-dark bg-light">1m 54s</span>
+                        <span class="badge text-dark bg-light">7s</span>
                       </div>
                     </div>
                     
-  <div class="mt-3 border-top">
-    <div class="leaf passed">
-      <div class="d-flex justify-content-between mt-3">
-        <div>
-            <i class="bi bi-check-circle-fill text-success"></i>
-          <span class="ms-2">verifyCSAOnDemandPage</span>
-        </div>
-        <div>
-          <span class="badge text-dark bg-light">1m 38s</span>
-        </div>
-      </div>
-      
-    </div>
-  </div>
 
                   </div>
                 </div>
@@ -176,12 +173,7 @@
         { result: 'Failed', count: 0, bg: 'rgb(233,80,113)' },
         { result: 'Skipped', count: 0, bg: 'rgb(221, 91, 96)' }
       ];
-      const stats3Annotation = {'total': 1, 'passed': 1};
-      const stats3 = [
-        { result: 'Passed', count: 1, bg: 'rgb(140, 197, 83)' },
-        { result: 'Failed', count: 0, bg: 'rgb(233,80,113)' },
-        { result: 'Skipped', count: 0, bg: 'rgb(221, 91, 96)' }
-      ];
+      const stats3 = null;
      
   </script>
     <script src="https://cdn.jsdelivr.net/gh/anshooarora/chaintest@44756c2b27c4da9d1141ae2de0fc3dda852f17a1/cdn/simple/version/chaintest-pkg.js"></script>
@@ -199,7 +191,7 @@
               <tbody>
                   <tr>
                     <td>java.version</td>
-                    <td>21.0.8</td>
+                    <td>17.0.9</td>
                   </tr>
                   <tr>
                     <td>java.vm.name</td>
@@ -211,7 +203,7 @@
                   </tr>
                   <tr>
                     <td>java.class.version</td>
-                    <td>65.0</td>
+                    <td>61.0</td>
                   </tr>
                   <tr>
                     <td>java.runtime.name</td>
@@ -252,6 +244,10 @@
           <table class="table">
             <tbody>
                 <tr>
+                  <td>esc</td>
+                  <td>Reset all filters</td>
+                </tr>
+                <tr>
                   <td>L</td>
                   <td>Toggle theme (light/dark)</td>
                 </tr>
@@ -266,10 +262,6 @@
                 <tr>
                   <td>f</td>
                   <td>Toggle failed tests</td>
-                </tr>
-                <tr>
-                  <td>esc</td>
-                  <td>Reset all filters</td>
                 </tr>
             </tbody>
           </table>

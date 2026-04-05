@@ -23,7 +23,7 @@ import org.testng.annotations.Listeners;
 
 import com.aventstack.chaintest.plugins.ChainTestListener;
 
-@Listeners(ChainTestListener.class)
+//@Listeners(ChainTestListener.class)
 public class DriverManager {
 
 	    protected static WebDriver driver;
@@ -90,11 +90,8 @@ public class DriverManager {
 	    }
 
 	    public static String getURL() {
-	        String env = prop.getProperty("env")
-	                         .split("#")[0]     // remove inline comment
-	                         .trim()
-	                         .toLowerCase();
-
+	    	String env = System.getProperty("env") != null ? System.getProperty("env") : prop.getProperty("env");
+	    	env = env.split("#")[0].trim().toLowerCase();
 	        switch (env) {
 	            case "stage":
 	                return prop.getProperty("stageUrl");
@@ -131,7 +128,11 @@ public class DriverManager {
 	    lp.waitForPageToLoad();
 	    lp.clickAcceptAllCookies();
 
-	    String environment = prop.getProperty("env").split("#")[0].trim().toLowerCase();
+
+         String environment = System.getProperty("env") != null ? System.getProperty("env") : prop.getProperty("env");
+         environment = environment.split("#")[0].trim().toLowerCase();
+
+
 	    switch(environment)
 	    {
 	        case "stage":

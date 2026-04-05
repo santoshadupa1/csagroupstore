@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.csagroup.tests.CreateAccountTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 111.2 s -- in org.csagroup.tests.CreateAccountTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.98 s -- in org.csagroup.tests.CreateAccountTest
