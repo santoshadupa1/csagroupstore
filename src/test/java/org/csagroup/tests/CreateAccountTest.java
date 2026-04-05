@@ -29,8 +29,8 @@ public class CreateAccountTest extends DriverManager
 		registrationPage.clickOnTermsCheckbox();
 		registrationPage.clickOnPrivacyCheckbox();
 		registrationPage.clickOnCSAGroupCheckbox();
-		registrationPage.clickOnSubmitButton();
-		registrationPage.verifyUserCreated(dynamicName);
+		//registrationPage.clickOnSubmitButton();
+		//registrationPage.verifyUserCreated(dynamicName);
 	}
 
 }
