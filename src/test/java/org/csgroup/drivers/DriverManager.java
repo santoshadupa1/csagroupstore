@@ -52,24 +52,22 @@ public class DriverManager {
 	            switch (browserName) {
 
 	                case "chrome":
-	                    ChromeOptions options = new ChromeOptions();
-	                    Map<String, Object> prefs = new HashMap<String, Object>();
-	        		    prefs.put("credentials_enable_service", false);
-	        		    prefs.put("password_manager_enabled", false);
-	        		    Map<String, Object> profile = new HashMap<String, Object>();
-	        		    profile.put("password_manager_leak_detection", false);
-	        		    prefs.put("profile", profile);
-	        		    options.setExperimentalOption("prefs", prefs);
-	        		    if (mode.contains("headless")) {
-	        		        options.addArguments("--headless=new");
-	        		        options.addArguments("--window-size=1920,1080");
-	        		        options.addArguments("--disable-gpu");
-	        		        options.addArguments("--no-sandbox");
-	        		        options.addArguments("--disable-dev-shm-usage");
-	        		    }
-	        		    driver = new ChromeDriver(options); // ✅ ONLY ONCE
-	                    break;
-
+	                     ChromeOptions options = new ChromeOptions();
+					     Map<String, Object> prefs = new HashMap<>();
+					     prefs.put("credentials_enable_service", false);
+					     prefs.put("password_manager_enabled", false);
+					     Map<String, Object> profile = new HashMap<>();
+					     profile.put("password_manager_leak_detection", false);
+					     prefs.put("profile", profile);
+					    options.setExperimentalOption("prefs", prefs);					
+					    // 🔥 CRITICAL: Always apply in CI
+					    options.addArguments("--headless=new");
+					    options.addArguments("--no-sandbox");
+					    options.addArguments("--disable-dev-shm-usage");
+					    options.addArguments("--disable-gpu");
+					    options.addArguments("--window-size=1920,1080");				
+					    driver = new ChromeDriver(options);
+					    break;
 	                case "firefox":
 	                    FirefoxOptions firefoxOptions = new FirefoxOptions();
 	                    if (mode.equals("headless")) {
@@ -77,15 +75,12 @@ public class DriverManager {
 	                    }
 	                    driver = new FirefoxDriver(firefoxOptions);
 	                    break;
-
 	                default:
 	                    throw new RuntimeException("Invalid browser: " + browserName);
 	            }
-
 	            driver.manage().window().maximize();
 	            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	        }
-
 	        return driver;
 	    }
 
@@ -109,15 +104,6 @@ public class DriverManager {
 	protected void waitForVisibility(WebElement element) throws Error {
 		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
 	}
-
-//	// Excel Reader Method
-//	public String[][] getData(String ExcelName, String sheetName) {
-//		// /uiAutoframework/src/main/java/com/test/Autoframework/uiAutoframework/data/TestData.xlsx
-//		String path = System.getProperty("user.dir") + "/src/main/java/com/csagroup/resources/" + ExcelName;
-//		excel = new ExcelReader(path);
-//		String[][] data = excel.getDataFromSheet(sheetName, ExcelName);
-//		return data;
-//	}
 	
 	@BeforeMethod
 	public void setup() throws IOException {
