@@ -9,8 +9,8 @@ on:
         options: [stage, prod]
       browser:
         type: choice
-        default: chrome
-        options: [chrome, edge, firefox]
+        default: chrome-headless
+        options: [chrome-headless, chrome, edge, firefox]
 
 jobs:
   test:
