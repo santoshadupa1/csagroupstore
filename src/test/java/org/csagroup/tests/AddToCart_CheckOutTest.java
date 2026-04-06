@@ -39,23 +39,32 @@ public class AddToCart_CheckOutTest extends DriverManager {
 		productsPage.verifyNewEditionText();
 		productsPage.verifyViewAccessAndRegion();
 		productsPage.addProductToCartPage(prop.getProperty("ProductPaper"));
+		productsPage.waitForTimeToLoad(3);
 		// Procced to Cart and Checkout
 		cartPage = new CartPage(driver);
 		cartPage.scrollToTop();
 		cartPage.clickOnGoToCart();
 		cartPage.verifyItemQuantity();
 		cartPage.clickOnCheckoutBtn();
+		cartPage.waitForTimeToLoad(3);
 		cartPage.clickOnContinueBtn();
+		cartPage.waitForTimeToLoad(3);
 		cartPage.verifyShippingCostIsDisplayed();
 		cartPage.clickOnCheckoutContinueBtn();
+		cartPage.waitForTimeToLoad(3);
 		cartPage.verifyOrderViewShippingCost();
 		cartPage.clickOnOrderViewContinueBtn();
+		cartPage.waitForTimeToLoad(3);
 		cartPage.verifyOrderViewHTSTax();
 		cartPage.verifyPaymentMethodTotal();
+		cartPage.waitForTimeToLoad(3);
 		// Post Condition - Clear Cart
 		cartPage.clickOnEditCartBtn();
+		cartPage.waitForTimeToLoad(3);
 		cartPage.clickOnLeaveCheckoutBtn();
+		cartPage.waitForTimeToLoad(3);
 		cartPage.clickOnClearCartBtn();
+		cartPage.waitForTimeToLoad(3);
 		cartPage.clickOnClearCartConfirmationBtn();
 		cartPage.waitForTimeToLoad(10);
 	}

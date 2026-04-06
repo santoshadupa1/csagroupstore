@@ -5,12 +5,17 @@ import org.csagroup.utilities.PropertyReader;
 import org.csgroup.drivers.DriverManager;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Story;
+
 public class OnDemandTest extends DriverManager {
 	
 	CSAOnDemandPage onDemandPage;
 	PropertyReader prop = new PropertyReader();
 	
 	@Test
+	@Story("Verify CSA OnDemandPage")
+	@Description("Validates OnDemand Page functionality for stage and prod environments")
 	public void verifyCSAOnDemandPage()
 	{
 		lp.clickOnLogin();		
@@ -49,10 +54,6 @@ public class OnDemandTest extends DriverManager {
 	   // Cleanup
 	   onDemandPage.closeCurrentTabAndSwitchBack(); // Tab 3 → Tab 2
 	   onDemandPage.closeCurrentTabAndSwitchBack(); // Tab 2 → Tab 1
-	   
-		
+	   	
 	}
-	
-	
-
 }

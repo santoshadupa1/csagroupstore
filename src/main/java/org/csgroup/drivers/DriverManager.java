@@ -163,7 +163,7 @@ public class DriverManager {
             	System.out.println("Environment URL is:" + prop.getProperty("stageUrl"));
                 return prop.getProperty("stageUrl");
             case "prod":
-            	System.out.println("Environment URL is:" + prop.getProperty("stageUrl"));
+            	System.out.println("Environment URL is:" + prop.getProperty("prodUrl"));
             	AllureCaptureScreenshot.step("Environment URL is:" + prop.getProperty("prodUrl"));
                 return prop.getProperty("prodUrl");
             default:
