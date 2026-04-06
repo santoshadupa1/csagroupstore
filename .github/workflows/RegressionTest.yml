@@ -27,12 +27,22 @@ jobs:
           java-version: 21
           cache: maven
 
-      - name: Install Allure CLI
+      # ⚙️ Install Allure CLI
+      - name: Install Allure
         run: |
-          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
-          tar -zxvf allure-2.27.0.tgz
-          sudo mv allure-2.27.0 /opt/allure
+          wget -q -O allure-2.21.0.tgz https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz
+          tar -xzf allure-2.21.0.tgz
+          sudo mv allure-2.21.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+          
+      # 🔄 Restore previous Allure history for trend graphs
+      - name: Restore Allure History
+        run: |
+          git fetch origin gh-pages || true
+          mkdir -p target/allure-results/history
+          if git show origin/gh-pages:history >/dev/null 2>&1; then
+            git show origin/gh-pages:history | tar -xO || true
+          fi
 
       - name: Run Regression Suite
         run: |
