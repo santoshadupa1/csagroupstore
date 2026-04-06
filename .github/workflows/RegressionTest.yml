@@ -5,21 +5,12 @@ on:
     inputs:
       env:
         type: choice
-        description: "Environment (stage / prod)"
-        required: false
         default: stage
-        options:
-          - stage
-          - prod
+        options: [stage, prod]
       browser:
         type: choice
-        description: "Browser to run tests"
-        required: true
         default: chrome
-        options:
-          - chrome
-          - edge
-          - firefox
+        options: [chrome, edge, firefox]
 
 jobs:
   test:
@@ -36,29 +27,35 @@ jobs:
           java-version: 21
           cache: maven
 
-      - name: Verify Java Version
-        run: java -version
-
-      - name: Run TestNG Suite (Env Driven)
+      - name: Install Allure CLI
         run: |
-          mvn clean test -DsuiteXmlFile=RegressionSuite.xml \
+          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
+          tar -zxvf allure-2.27.0.tgz
+          sudo mv allure-2.27.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+
+      - name: Run Regression Suite
+        run: |
+          mvn clean test \
           -Denv=${{ github.event.inputs.env || 'stage' }} \
           -Dbrowser=${{ github.event.inputs.browser || 'chrome' }}
 
-      # 🧱 Generate Allure HTML Report
+      - name: Preserve Allure History
+        run: |
+          if [ -d "history" ]; then
+            cp -r history target/allure-results/history
+          fi
+
       - name: Generate Allure Report
         run: |
           allure generate target/allure-results --clean -o target/allure-report
-          cp -r target/allure-report/history history || true
 
-      # 📦 Upload Allure Report as artifact
-      - name: Upload Allure Report Artifact
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: target/allure-report
 
-      # 🚀 Deploy Allure Report to GitHub Pages
       - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -66,22 +63,3 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./target/allure-report
           keep_files: true
-          force_orphan: true
-
-      # 📊 Upload raw test results
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: target/test-results/*.xml
-
-      - name: Publish Test Results Summary
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          files: target/test-results/*.xml
-          check_run: false
-          job_summary: true
-
-      - name: Add Allure Report URL to Summary
-        run: echo "🌐 [View Allure Report](https://santoshadupa1.github.io/csagroupstore/)" >> $GITHUB_STEP_SUMMARY
