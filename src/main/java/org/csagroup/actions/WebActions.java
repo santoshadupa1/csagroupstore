@@ -179,6 +179,11 @@ public class WebActions {
         wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
         highLightElement(elementBy);
     }
+    
+    //Wait for Element to Presence
+    public void waitForElementToPresence(By locator) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
 
     // Wait for element to be clickable
     public void waitForElementToClick(By elementBy) {
@@ -283,7 +288,7 @@ public class WebActions {
 
     // Write text
     public void writeText(By elementBy, String text) {
-        waitForElementToAppear(elementBy);
+    	waitForElementToPresence(elementBy);
         WebElement el = driver.findElement(elementBy);
         el.clear();
         el.sendKeys(text);

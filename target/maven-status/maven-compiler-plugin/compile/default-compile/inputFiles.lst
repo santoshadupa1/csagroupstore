@@ -1,10 +1,13 @@
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\actions\CSALocators.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\actions\WebActions.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\pages\CartPage.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\pages\CheckoutPage.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\pages\CSAOnDemandPage.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\pages\LoginPage.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\pages\OrderPage.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\pages\ProductsPage.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\pages\RegistrationPage.java
-C:\Users\santo\OneDrive\Documents\Automation local\csagroupstore\src\main\java\org\csagroup\utilities\PropertyReader.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\actions\CSALocators.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\actions\WebActions.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\allureutility\AllureCaptureScreenshot.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\allureutility\AllureListener.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\pages\CartPage.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\pages\CheckoutPage.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\pages\CSAOnDemandPage.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\pages\LoginPage.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\pages\OrderPage.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\pages\ProductsPage.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\pages\RegistrationPage.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csagroup\utilities\PropertyReader.java
+C:\SantoshAdupa\csagroupstore\src\main\java\org\csgroup\drivers\DriverManager.java
