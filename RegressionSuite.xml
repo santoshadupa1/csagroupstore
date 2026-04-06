@@ -19,4 +19,9 @@
       <class name="org.csagroup.tests.CreateAccountTest"/>
     </classes>
   </test> <!-- Test -->
+  <test thread-count="5" name="OnDemandTest">
+    <classes>
+      <class name="org.csagroup.tests.OnDemandTest"/>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
