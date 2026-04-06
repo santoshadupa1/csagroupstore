@@ -1,20 +1,18 @@
 package org.csagroup.pages;
 
-import java.sql.DriverManager;
-import java.time.Duration;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.csagroup.actions.CSALocators;
 import org.csagroup.actions.WebActions;
+import org.csagroup.allureutility.AllureCaptureScreenshot;
 import org.csagroup.utilities.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import io.qameta.allure.Step;
 
 
 
@@ -62,40 +60,44 @@ public class LoginPage extends WebActions implements CSALocators{
 	{
 		return driver.findElement(loginbtn);
 	}
-	
+    @Step("Enter username and password")
 	public void enterLoginCredentials(String uname, String pswd)
 	{
 		logger.info("click on Login button");
 		//scrollIntoView();
-		//logger.info("Scroll the Page");
 		writeText(username, uname);
-		logger.info("Enter the username:");
+		AllureCaptureScreenshot.attachLog("Enter the Username: " + uname);
 		System.out.println("Enter the username: " +uname);
 		writeText(password, pswd);
-		logger.info("Enter the password:");
+		AllureCaptureScreenshot.attachLog("Enter the password: " + pswd);
 		System.out.println("Enter the password: " +pswd);
 		javaScriptClick(loginbtn);
-		logger.info("click Login button action is Completed");
+		AllureCaptureScreenshot.attachLog("Click on Login button");
 		System.out.println("click login button action is completed");
 	}
-
+    @Step("Click on Login/Register button")
 	public void clickOnLogin()
 	{
 		javaScriptClick(loginRegister);	
-		logger.info("Click on the Login/Register button is  clicked");
-		System.out.println("Click on the Login/Register button is  clicked");
+		AllureCaptureScreenshot.step("Clicked Login/Register");
+		AllureCaptureScreenshot.attachLog("Clicked on Login/Register button");
+		System.out.println("Click on the Login/Register");
 	}
+    @Step("Click on Create Account button")
 	public void CreateAccount()
 	{
 		javaScriptClick(createaccount);
-		logger.info("Click on the create account button is  clicked");
+		AllureCaptureScreenshot.attachLog("Clicked on the Create Account button");
 		System.out.println("Click on the create account button is  clicked");
 	}
+    @Step("Click on LogOut button")
 	public void Logout()
 	{
 		javaScriptClick(Logout);
-		logger.info("Click on the logout button is  clicked");
+		AllureCaptureScreenshot.attachLog("Clicked on Logout button");
+		System.out.println("Click on the logout button is  clicked");
 	}
+    
 	public void verifyLoginPage(String Title)
 	{
 		readText(HeaderTitle);
@@ -112,16 +114,18 @@ public class LoginPage extends WebActions implements CSALocators{
 		return driver.findElements(AcceptAllCookies).size();
 	}
 	
+	@Step("Handle Accept Cookies popup")
 	public void clickAcceptAllCookies()
 	{
 		if(getAcceptAllAlertSize()>0)
 		{
 			javaScriptClick(AcceptAllCookies);
-			logger.info("Accept All Cookies Alert is Displayed and Clicked");
+			AllureCaptureScreenshot.attachLog("Accept All Cookies Alert is Displayed and Clicked");
 			System.out.println("Accept All Cookies Alert is Displayed and Clicked");
 		}
 	}
 	
+	@Step("Verify logged-in user: {0}")
 	public void verifyloginUser(String expectedUsername)
 	{
 		//String expectedUsername = "Testfeb5p";
@@ -129,26 +133,32 @@ public class LoginPage extends WebActions implements CSALocators{
 		waitForElementToAppear(usernametext);
 		String actualUsername = readText(usernametext).trim();
 		Assert.assertTrue(actualUsername.contains(expectedUsername), "Logged in username does not match expected username.");
-		logger.info("Logged in Usernane is verified successfully");
+		AllureCaptureScreenshot.attachLog("Logged in Usernane is verified successfully: " +actualUsername);
 		System.out.println("Logged in Usernane is verified successfully: " +actualUsername);
 	}
 	
+	@Step("Verify Security code")
 	public void securityCodeVerification(String code)
 	{
 		writeText(securitycode, code);
 		System.out.println("Enter the security code: " +code);
 		javaScriptClick(securitycodeSubmit);
+		AllureCaptureScreenshot.attachLog("Click on the security code submit button");
 		System.out.println("Click on the security code submit button");
 	}
 	
-	 public void handleSecurityCodeIfPresent(String code) {
+	@Step("Verify the Security Code Field Is Presenet")
+	public void handleSecurityCodeIfPresent(String code) {
 
 	        try {
 	            writeText(securitycode, code);
+	            AllureCaptureScreenshot.attachLog("Security code entered: " + code);
 	            System.out.println("Security code entered: " + code);
 	            javaScriptClick(securitycodeSubmit);
+	            AllureCaptureScreenshot.attachLog("Security code is Submitted");
 	            System.out.println("Security code submitted");
 	        } catch (TimeoutException e) {
+	        	AllureCaptureScreenshot.attachLog("Security code not displayed → skipping");
 	            System.out.println("Security code not displayed → skipping");
 	        }
 	 }

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.csagroup.tests.OnDemandTest">
+      <class name="org.csagroup.tests.LoginTest">
         <methods>
-          <include name="verifyCSAOnDemandPage"/>
+          <include name="verifyLoginUser"/>
           <include name="setup"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- org.csagroup.tests.OnDemandTest -->
+      </class> <!-- org.csagroup.tests.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite">
+<listeners>
+    <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    <listener class-name="org.csagroup.allureutility.AllureListener"/>
+</listeners>
   <test thread-count="5" name="LoginTest">
     <classes>
       <class name="org.csagroup.tests.LoginTest"/>

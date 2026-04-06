@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.csagroup.allureutility.AllureCaptureScreenshot;
 import org.csagroup.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,14 +16,16 @@ import org.openqa.selenium.firefox.*;
 import org.openqa.selenium.support.ui.*;
 import org.testng.annotations.*;
 
+import io.qameta.allure.Step;
+
 public class DriverManager {
 
-    protected WebDriver driver;   // ❗ NOT static
+    public static WebDriver driver;   // ❗ NOT static
     public static Properties prop;
 
     protected LoginPage lp;
 
-    public WebDriver getDriver() throws IOException {
+    public static WebDriver getDriver() throws IOException {
 
         prop = new Properties();
         String filePath = System.getProperty("user.dir")
@@ -92,13 +95,11 @@ public class DriverManager {
     }
 
     public static String getURL() {
-
-        String env = System.getProperty("env") != null
+    	String env = System.getProperty("env") != null
                 ? System.getProperty("env")
                 : prop.getProperty("env");
 
-        env = env.trim().toLowerCase();
-
+        env = env.split("#")[0].trim().toLowerCase();
         switch (env) {
             case "stage":
                 return prop.getProperty("stageUrl");
@@ -110,25 +111,38 @@ public class DriverManager {
     }
 
     @BeforeMethod
-    public void setup() throws IOException {
+    @Step("Setup browser and launch application")
+	public void setup() throws IOException {
 
-        driver = getDriver();
-        driver.get(getURL());
+	    driver = DriverManager.getDriver();
+	    AllureCaptureScreenshot.attachLog("Browser: " + prop.getProperty("browser"));
+	    AllureCaptureScreenshot.attachLog("Environment: " + prop.getProperty("env"));
+	    driver.get(DriverManager.getURL());
+	    lp = new LoginPage(driver);
+	    lp.waitForPageToLoad();
+	    AllureCaptureScreenshot.step("Accepting cookies");
+	    lp.clickAcceptAllCookies();
 
-        lp = new LoginPage(driver);
-        lp.waitForPageToLoad();
-        lp.clickAcceptAllCookies();
+	    String environment = System.getProperty("env") != null
+	            ? System.getProperty("env")
+	            : prop.getProperty("env");
 
-        String env = System.getProperty("env") != null
-                ? System.getProperty("env")
-                : prop.getProperty("env");
+	    environment = environment.split("#")[0].trim().toLowerCase();
+	    switch(environment)
+	    {
+	        case "stage":
+	        	AllureCaptureScreenshot.step("Entering security code");
+	            lp.securityCodeVerification(prop.getProperty("securitycode"));
+	            break;
+	        case "prod":
+	        	AllureCaptureScreenshot.attachLog("Prod env → skipping security code");
+	            System.out.println("Prod env → skipping security code");
+	            break;
+	        default:
+	            throw new RuntimeException("Invalid environment: " + environment);
+	    }
+	}
 
-        env = env.trim().toLowerCase();
-
-        if (env.equals("stage")) {
-            lp.securityCodeVerification(prop.getProperty("securitycode"));
-        }
-    }
 
     @AfterMethod
     public void tearDown() {
