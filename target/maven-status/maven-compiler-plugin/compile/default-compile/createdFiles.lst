@@ -1,0 +1,13 @@
+org\csagroup\allureutility\AllureListener.class
+org\csagroup\utilities\PropertyReader.class
+org\csagroup\pages\CSAOnDemandPage.class
+org\csagroup\pages\RegistrationPage.class
+org\csagroup\pages\OrderPage.class
+org\csagroup\pages\LoginPage.class
+org\csagroup\pages\ProductsPage.class
+org\csagroup\pages\CheckoutPage.class
+org\csagroup\actions\CSALocators.class
+org\csagroup\pages\CartPage.class
+org\csgroup\drivers\DriverManager.class
+org\csagroup\actions\WebActions.class
+org\csagroup\allureutility\AllureCaptureScreenshot.class

@@ -54,14 +54,14 @@ public class CartPage extends WebActions implements CSALocators {
     public void clickOnCheckoutBtn()
     {
     	scrollIntoView(checkoutbtn);
-    	click(checkoutbtn);
+    	javaScriptClick(checkoutbtn);
     	System.out.println("Click on checkout button");
     }
     
     public void clickOnContinueBtn()
     {
     	scrollIntoView(continueBtn);
-    	click(continueBtn);
+    	javaScriptClick(continueBtn);
     	System.out.println("Click on continue button");
     }
     
@@ -75,13 +75,12 @@ public class CartPage extends WebActions implements CSALocators {
     public void clickOnOrderViewContinueBtn()
     {
     	scrollIntoView(orderViewContinueButton);
-    	click(continueBtn);
+    	javaScriptClick(continueBtn);
     	System.out.println("Click on continue button");
     }
     
     public void verifyShippingCostIsDisplayed()
     {
-    	waitForElementToAppear(shippingcost);
     	boolean isDisplayed = driver.findElement(shippingcost).isDisplayed();
     	System.out.println("Shipping cost is displayed: " +isDisplayed);
     	String shippingCostValue = driver.findElement(shippingcost).getText();
@@ -90,7 +89,7 @@ public class CartPage extends WebActions implements CSALocators {
     
     public void verifyOrderViewShippingCost()
     {
-    	waitForElementToAppear(orderviewshippingcost);
+    	//waitForElementToAppear(orderviewshippingcost);
     	boolean isDisplayed = driver.findElement(orderviewshippingcost).isDisplayed();
     	System.out.println("OrderView Shipping cost is displayed: " +isDisplayed);
     	String shippingCostValue = driver.findElement(shippingcost).getText();
@@ -99,7 +98,7 @@ public class CartPage extends WebActions implements CSALocators {
     
     public void verifyOrderViewHTSTax()
     {
-    	waitForElementToAppear(orderviewhtstax);
+    	//waitForElementToAppear(orderviewhtstax);
     	boolean isDisplayed = driver.findElement(orderviewhtstax).isDisplayed();
     	System.out.println("OrderView HTSTax is displayed: " +isDisplayed);
     	String HTSTaxValue = driver.findElement(orderviewhtstax).getText();
@@ -125,28 +124,28 @@ public class CartPage extends WebActions implements CSALocators {
     public void clickOnEditCartBtn()
     {
     	scrollIntoView(paymentmethodEditCart);
-    	click(paymentmethodEditCart);
+    	javaScriptClick(paymentmethodEditCart);
     	System.out.println("Click on Edit Cart button");
     }
     
     public void clickOnLeaveCheckoutBtn()
     {
     	scrollIntoView(leavecheckoutButtton);
-    	click(leavecheckoutButtton);
+    	javaScriptClick(leavecheckoutButtton);
     	System.out.println("Click on checkout button");
     }
     
     public void clickOnClearCartBtn()
     {
     	//scrollIntoView(checkoutbtn);
-    	click(clearCartButton);
+    	javaScriptClick(clearCartButton);
     	System.out.println("Click on checkout button");
     }
     
     public void clickOnClearCartConfirmationBtn()
     {
     	waitForElementToAppear(yesClearCartButton);
-    	click(yesClearCartButton);
+    	javaScriptClick(yesClearCartButton);
     	System.out.println("Clear Cart Confirmation - Click on Yes button");
     }
 }

@@ -1,25 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-06T12:38:56 IST" name="Surefire suite" finished-at="2026-04-06T12:42:32 IST" duration-ms="216049">
+  <suite started-at="2026-04-06T15:35:03 IST" name="Suite" finished-at="2026-04-06T15:42:18 IST" duration-ms="435147">
     <groups>
     </groups>
-    <test started-at="2026-04-06T12:38:56 IST" name="Surefire test" finished-at="2026-04-06T12:42:32 IST" duration-ms="216049">
-      <class name="org.csagroup.tests.AddToCart_CheckOutTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@644baf4a]" started-at="2026-04-06T12:38:56 IST" name="setup" finished-at="2026-04-06T12:39:07 IST" duration-ms="10861" status="PASS">
+    <test started-at="2026-04-06T15:35:03 IST" name="LoginTest" finished-at="2026-04-06T15:36:03 IST" duration-ms="60063">
+      <class name="org.csagroup.tests.LoginTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.LoginTest@7a5ceedd]" started-at="2026-04-06T15:35:03 IST" name="setup" finished-at="2026-04-06T15:35:15 IST" duration-ms="12189" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@644baf4a]" started-at="2026-04-06T12:39:07 IST" name="addToCartAndCheckOut" finished-at="2026-04-06T12:42:31 IST" duration-ms="204619" status="PASS">
+        <test-method signature="verifyLoginUser()[pri:0, instance:org.csagroup.tests.LoginTest@7a5ceedd]" started-at="2026-04-06T15:35:15 IST" name="verifyLoginUser" finished-at="2026-04-06T15:36:02 IST" duration-ms="47152" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Logged in username does not match expected username. expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Logged in username does not match expected username. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at org.csagroup.pages.LoginPage.verifyloginUser(LoginPage.java:148)
+at org.csagroup.tests.LoginTest.verifyLoginUser(LoginTest.java:58)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.LoginTest@7a5ceedd]" started-at="2026-04-06T15:36:03 IST" name="tearDown" finished-at="2026-04-06T15:36:03 IST" duration-ms="352" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.csagroup.tests.LoginTest -->
+    </test> <!-- LoginTest -->
+    <test started-at="2026-04-06T15:36:03 IST" name="AddToCartTest" finished-at="2026-04-06T15:39:35 IST" duration-ms="212328">
+      <class name="org.csagroup.tests.AddToCart_CheckOutTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@14bdbc74]" started-at="2026-04-06T15:36:03 IST" name="setup" finished-at="2026-04-06T15:36:18 IST" duration-ms="15376" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@14bdbc74]" started-at="2026-04-06T15:36:18 IST" name="addToCartAndCheckOut" finished-at="2026-04-06T15:39:35 IST" duration-ms="196563" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToCartAndCheckOut -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@644baf4a]" started-at="2026-04-06T12:42:31 IST" name="tearDown" finished-at="2026-04-06T12:42:32 IST" duration-ms="394" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@14bdbc74]" started-at="2026-04-06T15:39:35 IST" name="tearDown" finished-at="2026-04-06T15:39:35 IST" duration-ms="378" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- org.csagroup.tests.AddToCart_CheckOutTest -->
-    </test> <!-- Surefire test -->
-  </suite> <!-- Surefire suite -->
+    </test> <!-- AddToCartTest -->
+    <test started-at="2026-04-06T15:39:35 IST" name="CreateAccountTest" finished-at="2026-04-06T15:40:26 IST" duration-ms="50335">
+      <class name="org.csagroup.tests.CreateAccountTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.CreateAccountTest@41330d4f]" started-at="2026-04-06T15:39:35 IST" name="setup" finished-at="2026-04-06T15:39:51 IST" duration-ms="15932" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="createAccountTest()[pri:0, instance:org.csagroup.tests.CreateAccountTest@41330d4f]" started-at="2026-04-06T15:39:51 IST" name="createAccountTest" finished-at="2026-04-06T15:40:25 IST" duration-ms="34015" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAccountTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.CreateAccountTest@41330d4f]" started-at="2026-04-06T15:40:25 IST" name="tearDown" finished-at="2026-04-06T15:40:26 IST" duration-ms="377" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.csagroup.tests.CreateAccountTest -->
+    </test> <!-- CreateAccountTest -->
+    <test started-at="2026-04-06T15:40:26 IST" name="OnDemandTest" finished-at="2026-04-06T15:42:18 IST" duration-ms="112360">
+      <class name="org.csagroup.tests.OnDemandTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.OnDemandTest@508dec2b]" started-at="2026-04-06T15:40:26 IST" name="setup" finished-at="2026-04-06T15:40:39 IST" duration-ms="13666" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyCSAOnDemandPage()[pri:0, instance:org.csagroup.tests.OnDemandTest@508dec2b]" started-at="2026-04-06T15:40:39 IST" name="verifyCSAOnDemandPage" finished-at="2026-04-06T15:42:18 IST" duration-ms="98367" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCSAOnDemandPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.OnDemandTest@508dec2b]" started-at="2026-04-06T15:42:18 IST" name="tearDown" finished-at="2026-04-06T15:42:18 IST" duration-ms="317" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.csagroup.tests.OnDemandTest -->
+    </test> <!-- OnDemandTest -->
+  </suite> <!-- Suite -->
 </testng-results>
