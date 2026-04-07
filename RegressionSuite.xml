@@ -4,22 +4,22 @@
     <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     <listener class-name="org.csagroup.allureutility.AllureListener"/>
 </listeners>
-  <test thread-count="5" name="LoginTest">
+  <test  name="LoginTest">
     <classes>
       <class name="org.csagroup.tests.LoginTest"/>
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="AddToCartTest">
+  <test name="AddToCartTest">
     <classes>
       <class name="org.csagroup.tests.AddToCart_CheckOutTest"/>
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="CreateAccountTest">
+  <test name="CreateAccountTest">
     <classes>
       <class name="org.csagroup.tests.CreateAccountTest"/>
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="OnDemandTest">
+  <test name="OnDemandTest">
     <classes>
       <class name="org.csagroup.tests.OnDemandTest"/>
     </classes>

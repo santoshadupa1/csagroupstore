@@ -2,24 +2,51 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-06T15:46:57 IST" name="Default suite" finished-at="2026-04-06T15:47:45 IST" duration-ms="48224">
+  <suite started-at="2026-04-07T21:48:43 IST" name="Default suite" finished-at="2026-04-07T21:51:40 IST" duration-ms="177270">
     <groups>
     </groups>
-    <test started-at="2026-04-06T15:46:57 IST" name="Default test" finished-at="2026-04-06T15:47:45 IST" duration-ms="48224">
-      <class name="org.csagroup.tests.LoginTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.LoginTest@3cfdd820]" started-at="2026-04-06T15:46:57 IST" name="setup" finished-at="2026-04-06T15:47:07 IST" duration-ms="10277" status="PASS">
+    <test started-at="2026-04-07T21:48:43 IST" name="Default test" finished-at="2026-04-07T21:51:40 IST" duration-ms="177270">
+      <class name="org.csagroup.tests.AddToCart_CheckOutTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@1ebea008]" started-at="2026-04-07T21:48:43 IST" name="setup" finished-at="2026-04-07T21:49:08 IST" duration-ms="24770" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLoginUser()[pri:0, instance:org.csagroup.tests.LoginTest@3cfdd820]" started-at="2026-04-06T15:47:07 IST" name="verifyLoginUser" finished-at="2026-04-06T15:47:45 IST" duration-ms="37416" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@1ebea008]" started-at="2026-04-07T21:49:08 IST" name="addToCartAndCheckOut" finished-at="2026-04-07T21:51:40 IST" duration-ms="151748" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Cannot invoke "String.trim()" because the return value of "org.openqa.selenium.WebElement.getAttribute(String)" is null]]>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='shippingMethod']/div[2]"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [789aff7ef1fad2c8d62a888ec826221f, findElement {value=//*[@id='shippingMethod']/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\rames\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50257}, goog:processID: 11280, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50257/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 789aff7ef1fad2c8d62a888ec826221f]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.trim()" because the return value of "org.openqa.selenium.WebElement.getAttribute(String)" is null
-at org.csagroup.pages.LoginPage.verifyloginUser(LoginPage.java:146)
-at org.csagroup.tests.LoginTest.verifyLoginUser(LoginTest.java:57)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='shippingMethod']/div[2]"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [789aff7ef1fad2c8d62a888ec826221f, findElement {value=//*[@id='shippingMethod']/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\rames\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50257}, goog:processID: 11280, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50257/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 789aff7ef1fad2c8d62a888ec826221f
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:424)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:418)
+at org.csagroup.pages.CartPage.verifyShippingCostIsDisplayed(CartPage.java:84)
+at org.csagroup.tests.AddToCart_CheckOutTest.addToCartAndCheckOut(AddToCart_CheckOutTest.java:52)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -50,15 +77,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoginUser -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.LoginTest@3cfdd820]" started-at="2026-04-06T15:47:45 IST" name="tearDown" finished-at="2026-04-06T15:47:45 IST" duration-ms="329" status="PASS">
+        </test-method> <!-- addToCartAndCheckOut -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@1ebea008]" started-at="2026-04-07T21:51:40 IST" name="tearDown" finished-at="2026-04-07T21:51:40 IST" duration-ms="583" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.LoginTest -->
+      </class> <!-- org.csagroup.tests.AddToCart_CheckOutTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

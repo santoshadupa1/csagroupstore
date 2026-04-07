@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.csagroup.tests.LoginTest">
+      <class name="org.csagroup.tests.AddToCart_CheckOutTest">
         <methods>
-          <include name="verifyLoginUser"/>
           <include name="setup"/>
+          <include name="addToCartAndCheckOut"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- org.csagroup.tests.LoginTest -->
+      </class> <!-- org.csagroup.tests.AddToCart_CheckOutTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
