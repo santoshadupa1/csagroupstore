@@ -3,21 +3,25 @@ package org.csgroup.drivers;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Arrays;
 
 import org.csagroup.allureutility.AllureCaptureScreenshot;
 import org.csagroup.pages.LoginPage;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.*;
-import org.openqa.selenium.firefox.*;
-import org.openqa.selenium.support.ui.*;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Dimension;
-import org.testng.annotations.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import io.qameta.allure.Step;
 
@@ -27,6 +31,18 @@ public class DriverManager {
     public static Properties prop;
 
     protected LoginPage lp;
+    
+ // ================================
+    // 🔥 SINGLE SOURCE OF TRUTH (ENV)
+    // ================================
+    public static String getEnv() {
+        String env = System.getProperty("env") != null
+                ? System.getProperty("env")
+                : prop.getProperty("env");
+
+        return env.split("#")[0].trim().toLowerCase();
+    }
+
 
     public static WebDriver getDriver() throws IOException {
 
@@ -152,12 +168,8 @@ public class DriverManager {
     }
 
     public static String getURL() {
-    	String env = System.getProperty("env") != null
-                ? System.getProperty("env")
-                : prop.getProperty("env");
-
-        env = env.split("#")[0].trim().toLowerCase();
-        switch (env) {
+    	
+        switch (getEnv()) {
             case "stage":
             	AllureCaptureScreenshot.step("Environment URL is:" + prop.getProperty("stageUrl"));
             	System.out.println("Environment URL is:" + prop.getProperty("stageUrl"));
@@ -167,7 +179,7 @@ public class DriverManager {
             	AllureCaptureScreenshot.step("Environment URL is:" + prop.getProperty("prodUrl"));
                 return prop.getProperty("prodUrl");
             default:
-                throw new RuntimeException("Invalid environment: " + env);
+                throw new RuntimeException("Invalid environment: " + getEnv());
         }
     }
 
@@ -184,12 +196,7 @@ public class DriverManager {
 	    AllureCaptureScreenshot.step("Accepting cookies");
 	    lp.clickAcceptAllCookies();
 
-	    String environment = System.getProperty("env") != null
-	            ? System.getProperty("env")
-	            : prop.getProperty("env");
-
-	    environment = environment.split("#")[0].trim().toLowerCase();
-	    switch(environment)
+	    switch(getEnv())
 	    {
 	        case "stage":
 	        	AllureCaptureScreenshot.step("Entering security code");
@@ -200,7 +207,7 @@ public class DriverManager {
 	            System.out.println("Prod env → skipping security code");
 	            break;
 	        default:
-	            throw new RuntimeException("Invalid environment: " + environment);
+	            throw new RuntimeException("Invalid environment: " + getEnv());
 	    }
 	}
 

@@ -17,8 +17,8 @@ public class AddToCart_CheckOutTest extends DriverManager {
 	{
 		//Login to the Application
 	    lp.clickOnLogin();		
-	    String environment = prop.getProperty("env").split("#")[0].trim().toLowerCase();
-	    switch(environment)
+	    
+	    switch(getEnv())
 	    {
 		    case "stage":
 		    	lp.enterLoginCredentials(prop.getProperty("stageUsername"), prop.getProperty("stagePassword"));
@@ -27,7 +27,7 @@ public class AddToCart_CheckOutTest extends DriverManager {
 	        	lp.enterLoginCredentials(prop.getProperty("username"), prop.getProperty("password"));
 	            break;
 	        default:
-	            throw new RuntimeException("Invalid environment: " + environment);	         
+	            throw new RuntimeException("Invalid environment: " + getEnv());	         
 	    }
 	    lp.waitForPageToLoad();
 	    //lp.verifyloginUser("Testfeb5p");
@@ -48,7 +48,7 @@ public class AddToCart_CheckOutTest extends DriverManager {
 		cartPage.clickOnCheckoutBtn();
 		cartPage.waitForTimeToLoad(3);
 		cartPage.clickOnContinueBtn();
-		cartPage.waitForTimeToLoad(3);
+		cartPage.waitForTimeToLoad(5);
 		cartPage.verifyShippingCostIsDisplayed();
 		cartPage.clickOnCheckoutContinueBtn();
 		cartPage.waitForTimeToLoad(3);

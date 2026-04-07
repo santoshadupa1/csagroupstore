@@ -8,25 +8,34 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">LoginTest</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">60,063</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t1">AddToCartTest</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">212,328</td><td></td><td></td></tr>
-<tr><td><a href="#t2">CreateAccountTest</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">50,335</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t3">OnDemandTest</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">112,360</td><td></td><td></td></tr>
-<tr><th>Total</th><th class="num">3</th><th class="num">0</th><th class="num">0</th><th class="num attn">1</th><th class="num">435,086</th><th colspan="2"></th></tr>
+<tr><th colspan="8">Surefire suite</th></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">179,972</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">LoginTest &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">org.csagroup.tests.LoginTest</td><td><a href="#m0">verifyLoginUser</a></td><td rowspan="1">1775469915728</td><td rowspan="1">47152</td></tr></tbody>
-<tbody id="t1"><tr><th colspan="4">AddToCartTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">org.csagroup.tests.AddToCart_CheckOutTest</td><td><a href="#m1">addToCartAndCheckOut</a></td><td rowspan="1">1775469978849</td><td rowspan="1">196563</td></tr></tbody>
-<tbody id="t2"><tr><th colspan="4">CreateAccountTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">org.csagroup.tests.CreateAccountTest</td><td><a href="#m2">createAccountTest</a></td><td rowspan="1">1775470191745</td><td rowspan="1">34015</td></tr></tbody>
-<tbody id="t3"><tr><th colspan="4">OnDemandTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">org.csagroup.tests.OnDemandTest</td><td><a href="#m3">verifyCSAOnDemandPage</a></td><td rowspan="1">1775470239822</td><td rowspan="1">98367</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">org.csagroup.tests.AddToCart_CheckOutTest</td><td><a href="#m0">addToCartAndCheckOut</a></td><td rowspan="1">1775578498382</td><td rowspan="1">157944</td></tr></tbody>
 </table>
-<h2>LoginTest</h2><h3 id="m0">org.csagroup.tests.LoginTest#verifyLoginUser</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Logged in username does not match expected username. expected [true] but found [false]
-	at org.csagroup.pages.LoginPage.verifyloginUser(LoginPage.java:148)
-	at org.csagroup.tests.LoginTest.verifyLoginUser(LoginTest.java:58)
+<h2>Surefire test</h2><h3 id="m0">org.csagroup.tests.AddToCart_CheckOutTest#addToCartAndCheckOut</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;shippingMethod&apos;]/div[2]&quot;}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ddf744ca210b40b13c0cb6eb56beb438, findElement {value=//*[@id=&apos;shippingMethod&apos;]/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\rames\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51788}, goog:processID: 30376, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51788/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ddf744ca210b40b13c0cb6eb56beb438
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:424)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:418)
+	at org.csagroup.pages.CartPage.verifyShippingCostIsDisplayed(CartPage.java:84)
+	at org.csagroup.tests.AddToCart_CheckOutTest.addToCartAndCheckOut(AddToCart_CheckOutTest.java:52)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>AddToCartTest</h2><h3 id="m1">org.csagroup.tests.AddToCart_CheckOutTest#addToCartAndCheckOut</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>CreateAccountTest</h2><h3 id="m2">org.csagroup.tests.CreateAccountTest#createAccountTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>OnDemandTest</h2><h3 id="m3">org.csagroup.tests.OnDemandTest#verifyCSAOnDemandPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

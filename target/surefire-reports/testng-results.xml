@@ -1,28 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-06T15:35:03 IST" name="Suite" finished-at="2026-04-06T15:42:18 IST" duration-ms="435147">
+  <suite started-at="2026-04-07T21:44:36 IST" name="Surefire suite" finished-at="2026-04-07T21:47:36 IST" duration-ms="179972">
     <groups>
     </groups>
-    <test started-at="2026-04-06T15:35:03 IST" name="LoginTest" finished-at="2026-04-06T15:36:03 IST" duration-ms="60063">
-      <class name="org.csagroup.tests.LoginTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.LoginTest@7a5ceedd]" started-at="2026-04-06T15:35:03 IST" name="setup" finished-at="2026-04-06T15:35:15 IST" duration-ms="12189" status="PASS">
+    <test started-at="2026-04-07T21:44:36 IST" name="Surefire test" finished-at="2026-04-07T21:47:36 IST" duration-ms="179972">
+      <class name="org.csagroup.tests.AddToCart_CheckOutTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@7526515b]" started-at="2026-04-07T21:44:36 IST" name="setup" finished-at="2026-04-07T21:44:58 IST" duration-ms="21472" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLoginUser()[pri:0, instance:org.csagroup.tests.LoginTest@7a5ceedd]" started-at="2026-04-06T15:35:15 IST" name="verifyLoginUser" finished-at="2026-04-06T15:36:02 IST" duration-ms="47152" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@7526515b]" started-at="2026-04-07T21:44:58 IST" name="addToCartAndCheckOut" finished-at="2026-04-07T21:47:36 IST" duration-ms="157944" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Logged in username does not match expected username. expected [true] but found [false]]]>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='shippingMethod']/div[2]"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ddf744ca210b40b13c0cb6eb56beb438, findElement {value=//*[@id='shippingMethod']/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\rames\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51788}, goog:processID: 30376, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51788/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ddf744ca210b40b13c0cb6eb56beb438]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Logged in username does not match expected username. expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1590)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at org.csagroup.pages.LoginPage.verifyloginUser(LoginPage.java:148)
-at org.csagroup.tests.LoginTest.verifyLoginUser(LoginTest.java:58)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='shippingMethod']/div[2]"}
+  (Session info: chrome=146.0.7680.178)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ddf744ca210b40b13c0cb6eb56beb438, findElement {value=//*[@id='shippingMethod']/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\rames\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51788}, goog:processID: 30376, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51788/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ddf744ca210b40b13c0cb6eb56beb438
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:424)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:418)
+at org.csagroup.pages.CartPage.verifyShippingCostIsDisplayed(CartPage.java:84)
+at org.csagroup.tests.AddToCart_CheckOutTest.addToCartAndCheckOut(AddToCart_CheckOutTest.java:52)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -46,72 +70,25 @@ at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
 at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
 at org.testng.TestNG.runSuites(TestNG.java:1112)
 at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
 at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
 at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
 at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginUser -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.LoginTest@7a5ceedd]" started-at="2026-04-06T15:36:03 IST" name="tearDown" finished-at="2026-04-06T15:36:03 IST" duration-ms="352" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.LoginTest -->
-    </test> <!-- LoginTest -->
-    <test started-at="2026-04-06T15:36:03 IST" name="AddToCartTest" finished-at="2026-04-06T15:39:35 IST" duration-ms="212328">
-      <class name="org.csagroup.tests.AddToCart_CheckOutTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@14bdbc74]" started-at="2026-04-06T15:36:03 IST" name="setup" finished-at="2026-04-06T15:36:18 IST" duration-ms="15376" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@14bdbc74]" started-at="2026-04-06T15:36:18 IST" name="addToCartAndCheckOut" finished-at="2026-04-06T15:39:35 IST" duration-ms="196563" status="PASS">
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToCartAndCheckOut -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@14bdbc74]" started-at="2026-04-06T15:39:35 IST" name="tearDown" finished-at="2026-04-06T15:39:35 IST" duration-ms="378" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@7526515b]" started-at="2026-04-07T21:47:36 IST" name="tearDown" finished-at="2026-04-07T21:47:36 IST" duration-ms="369" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- org.csagroup.tests.AddToCart_CheckOutTest -->
-    </test> <!-- AddToCartTest -->
-    <test started-at="2026-04-06T15:39:35 IST" name="CreateAccountTest" finished-at="2026-04-06T15:40:26 IST" duration-ms="50335">
-      <class name="org.csagroup.tests.CreateAccountTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.CreateAccountTest@41330d4f]" started-at="2026-04-06T15:39:35 IST" name="setup" finished-at="2026-04-06T15:39:51 IST" duration-ms="15932" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="createAccountTest()[pri:0, instance:org.csagroup.tests.CreateAccountTest@41330d4f]" started-at="2026-04-06T15:39:51 IST" name="createAccountTest" finished-at="2026-04-06T15:40:25 IST" duration-ms="34015" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createAccountTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.CreateAccountTest@41330d4f]" started-at="2026-04-06T15:40:25 IST" name="tearDown" finished-at="2026-04-06T15:40:26 IST" duration-ms="377" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.CreateAccountTest -->
-    </test> <!-- CreateAccountTest -->
-    <test started-at="2026-04-06T15:40:26 IST" name="OnDemandTest" finished-at="2026-04-06T15:42:18 IST" duration-ms="112360">
-      <class name="org.csagroup.tests.OnDemandTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.OnDemandTest@508dec2b]" started-at="2026-04-06T15:40:26 IST" name="setup" finished-at="2026-04-06T15:40:39 IST" duration-ms="13666" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyCSAOnDemandPage()[pri:0, instance:org.csagroup.tests.OnDemandTest@508dec2b]" started-at="2026-04-06T15:40:39 IST" name="verifyCSAOnDemandPage" finished-at="2026-04-06T15:42:18 IST" duration-ms="98367" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCSAOnDemandPage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.OnDemandTest@508dec2b]" started-at="2026-04-06T15:42:18 IST" name="tearDown" finished-at="2026-04-06T15:42:18 IST" duration-ms="317" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.OnDemandTest -->
-    </test> <!-- OnDemandTest -->
-  </suite> <!-- Suite -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
 </testng-results>
