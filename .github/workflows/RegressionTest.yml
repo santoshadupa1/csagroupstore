@@ -54,9 +54,10 @@ jobs:
       # 🔹 Install Allure CLI
       - name: Install Allure
         run: |
-          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
-          tar -zxvf allure-2.27.0.tgz
-          sudo ln -s $PWD/allure-2.27.0/bin/allure /usr/bin/allure
+          wget -q -O allure-2.21.0.tgz https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz
+          tar -xzf allure-2.21.0.tgz
+          sudo mv allure-2.21.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       # 🔹 Generate Allure HTML report
       - name: Generate Allure Report
