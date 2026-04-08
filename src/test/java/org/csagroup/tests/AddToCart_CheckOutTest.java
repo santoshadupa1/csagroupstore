@@ -17,7 +17,6 @@ public class AddToCart_CheckOutTest extends DriverManager {
 	{
 		//Login to the Application
 	    lp.clickOnLogin();		
-	    
 	    switch(getEnv())
 	    {
 		    case "stage":
@@ -48,7 +47,7 @@ public class AddToCart_CheckOutTest extends DriverManager {
 		cartPage.clickOnCheckoutBtn();
 		cartPage.waitForTimeToLoad(3);
 		cartPage.clickOnContinueBtn();
-		cartPage.waitForTimeToLoad(5);
+		cartPage.waitForTimeToLoad(3);
 		cartPage.verifyShippingCostIsDisplayed();
 		cartPage.clickOnCheckoutContinueBtn();
 		cartPage.waitForTimeToLoad(3);
