@@ -15,6 +15,7 @@ on:
   schedule:
     # ⏰ Runs every day at 2:00 AM UTC
     - cron: "0 2 * * *"
+
 jobs:
   test:
     runs-on: ubuntu-latest
