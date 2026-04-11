@@ -37,7 +37,7 @@ jobs:
       - name: Run Regression Suite
         run: |
           mvn clean test \
-          -Denv=${{ github.event.inputs.env || 'stage' }} \
+          -Denv=${{ github.event.inputs.env || 'prod' }} \
           -Dbrowser=${{ github.event.inputs.browser || 'chrome-headless' }}
         continue-on-error: true
 
