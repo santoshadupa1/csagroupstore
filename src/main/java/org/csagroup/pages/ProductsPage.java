@@ -150,5 +150,19 @@ public class ProductsPage extends WebActions implements CSALocators {
 		System.out.println("Clicked on Add to Cart button");
 	}
 	
+	By subscriptionBtn = By.xpath(SubscirptionButton);
+	By plusIconBtn = By.xpath(PlusIcon);
+	
+	public void clickOnSubscription()
+	{
+		javaScriptClick(subscriptionBtn);
+		System.out.println("Click on Subscription button");
+	}
+	
+	public void clickOnPlusIcon()
+	{
+		javaScriptClick(plusIconBtn);
+		System.out.println("Click on PlusIcon button");
+	}
 	
 }
