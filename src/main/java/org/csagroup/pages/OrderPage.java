@@ -125,7 +125,8 @@ public class OrderPage extends WebActions implements CSALocators {
     
     public void clickOnOrderViewContinueBbutton()
     {
-    	 By orderviewContinueBtn = By.xpath(OrderViewContinueButton);
+    	By orderviewContinueBtn = By.xpath(OrderViewContinueButton);
+    	waitForElementToAppear(orderviewContinueBtn);
     	scrollIntoView(orderviewContinueBtn);
     	javaScriptClick(orderviewContinueBtn);
     	System.out.println("Click on the Continue in Order View Page");
