@@ -7,12 +7,17 @@ import org.csagroup.utilities.PropertyReader;
 import org.csgroup.drivers.DriverManager;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Story;
+
 public class AddToCart_CheckOutTest extends DriverManager {
 	
 	ProductsPage productsPage;
 	PropertyReader prop = new PropertyReader();
 	CartPage cartPage;
 	@Test
+	@Story("Add To Cart Functionality")
+	@Description("Validates Add to Cart functionality for stage and prod environments")
 	public void addToCartAndCheckOut() throws InterruptedException
 	{
 		//Login to the Application

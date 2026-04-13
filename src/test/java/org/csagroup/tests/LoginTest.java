@@ -8,8 +8,8 @@ import org.csgroup.drivers.DriverManager;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
-@Epic("Authentication")
-@Feature("Login")
+
+@Feature("Authentication")
 public class LoginTest extends DriverManager {
 	
 	@Test
@@ -27,10 +27,10 @@ public class LoginTest extends DriverManager {
 		lp.clickOnLogin();
 
 		AllureCaptureScreenshot.attachScreenshot("Login Page Loaded", driver);
-		String environment = prop.getProperty("env").split("#")[0].trim().toLowerCase();
+		//String environment = prop.getProperty("env").split("#")[0].trim().toLowerCase();
 
-		AllureCaptureScreenshot.attachLog("Executing in environment: " + environment);
-		switch(environment)
+		AllureCaptureScreenshot.attachLog("Executing in environment: " + getEnv());
+		switch(getEnv())
 		{
 		    case "stage":
 
@@ -58,7 +58,7 @@ public class LoginTest extends DriverManager {
 		        break;
 
 		    default:
-		        throw new RuntimeException("Invalid environment: " + environment);
+		        throw new RuntimeException("Invalid environment: " + getEnv());
 		}
 
 		AllureCaptureScreenshot.attachScreenshot("Final state after login", driver);

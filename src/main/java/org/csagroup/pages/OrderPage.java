@@ -27,6 +27,9 @@ public class OrderPage extends WebActions implements CSALocators {
     By clearCartButton = By.xpath(ClearCartBtn);
     By yesClearCartButton = By.xpath(ClearCartConfirmationBtn);
     
+    By ordernumber = By.xpath(OrderNumber);
+    By ordersuccessmessage = By.xpath(OrderSuccessMessage);
+    
     public void clickOnOrderViewContinueBtn()
     {
     	scrollIntoView(orderViewContinueButton);
@@ -97,5 +100,35 @@ public class OrderPage extends WebActions implements CSALocators {
     	System.out.println("Clear Cart Confirmation - Click on Yes button");
     }
 
+    public void verifyOrderNumber()
+    {
+    	waitForElementToAppear(ordernumber);
+    	boolean orderno = driver.findElement(ordernumber).isDisplayed();
+    	System.out.println("Order Number is displayed: " +orderno);
+    	String orderid = driver.findElement(ordernumber).getText();
+    	System.out.println("Order Number : " +orderid);
+    }
+    
+    public void verifyOrderSuccessMessage()
+    {
+    	String orderSuccess = driver.findElement(ordersuccessmessage).getText();
+    	System.out.println("Order Success Message : " +orderSuccess);
+    }
+    
+    By viewcsaOnDemandBtn = By.xpath(ViewCSAOnDemand);
+    
+    public void clickOnCSAOnDemand()
+    {
+    	javaScriptClick(viewcsaOnDemandBtn);
+    	System.out.println("Click on the View CSA OnDemand button");
+    }
+    
+    public void clickOnOrderViewContinueBbutton()
+    {
+    	 By orderviewContinueBtn = By.xpath(OrderViewContinueButton);
+    	scrollIntoView(orderviewContinueBtn);
+    	javaScriptClick(orderviewContinueBtn);
+    	System.out.println("Click on the Continue in Order View Page");
+    }
 
 }

@@ -36,6 +36,12 @@ public interface CSALocators {
 	    public String LeaveCheckoutBtn = "//*[@id='confirm-go-to-cart']";
 	    public String ClearCartBtn = "//button[@id='clearCart']";
 	    public String ClearCartConfirmationBtn = "//button[@aria-label='Yes, remove item from cart']";
+	    public String SubscirptionButton = "//button[2][@data-title='Subscriptions']";
+	    public String PlusIcon = "(//*[@class='qnty-plus qty'])[3]";
+	    public String OrderNumber = "//*[@class='thankyou-message']/b";
+	    public String OrderSuccessMessage = "//h2[@class='panel-title cc_title heading-primary marginFixTitle']";
+	    public String ViewCSAOnDemand = "//a[@aria-label='View in CSA OnDemand']";
+	    
 	    
 	    //Create Account
 	    public String CreateAccountBtn = "//*[@value='Create an Account']";
@@ -63,4 +69,6 @@ public interface CSALocators {
         public String FavoriteHeartIcon = ".//*[@title='Add to Favourites']";
         public String DownloadPDFLink = "(.//*[@class='mylib-download-link'])[1]";
         public String ViewOnlineButton = "//*[@class='panel-collapse collapse mylib-collapse in']/div/div[1]/div/a[2]";
+        public String CSAAdvantageLibrary ="//*[@data-aura-class='cCSAAdvantageLink']";
+        public String OrderViewContinueButton ="//button[@id='free_placeOrder_top']";
 }

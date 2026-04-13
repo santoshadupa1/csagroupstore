@@ -31,6 +31,8 @@ public class CSAOnDemandPage extends WebActions implements CSALocators {
 	By downloadPDFlink = By.xpath(DownloadPDFLink);
 	By viewonlineBtn = By.xpath(ViewOnlineButton);
 	
+	By csaadvantageLibrary = By.xpath(CSAAdvantageLibrary);
+	
 	
 	public void clickOnDemandLink()
 	{
@@ -141,5 +143,11 @@ public class CSAOnDemandPage extends WebActions implements CSALocators {
 	    System.out.println("New Tab URL: " + actualURL);
 	   // Assert.assertEquals(actualURL, "https://view.csagroup.org/nuvJYe");
 	  //  switchBackToParent(parentWindow); 
+	}
+	
+	public void clickOnCSAAdvantageLibrary()
+	{
+		javaScriptClick(csaadvantageLibrary);
+		System.out.println("Click on CSA Advantage library link");
 	}
 }

@@ -135,9 +135,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [981dd7fa577e7bd81803b8dbdfb2adcf, findElement {value=//*[@id=&apos;shippingMethod&apos;]/div[2], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\rames\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50410}, goog:processID: 24888, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50410/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 981dd7fa577e7bd81803b8dbdfb2adcf
+Command: [84764f7624f6b18181d9349a88e898b4, findElement {value=//*[@id=&apos;shippingMethod&apos;]/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\rames\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53936}, goog:processID: 28948, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53936/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 84764f7624f6b18181d9349a88e898b4
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -150,7 +150,7 @@ Session ID: 981dd7fa577e7bd81803b8dbdfb2adcf
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:424)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:418)
 	at org.csagroup.pages.CartPage.verifyShippingCostIsDisplayed(CartPage.java:84)
-	at org.csagroup.tests.AddToCart_CheckOutTest.addToCartAndCheckOut(AddToCart_CheckOutTest.java:52)
+	at org.csagroup.tests.AddToCart_CheckOutTest.addToCartAndCheckOut(AddToCart_CheckOutTest.java:56)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 30 stack frames
 </div> <!-- stack-trace -->
@@ -213,12 +213,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'addToCartAndCheckOut')
 data.setCell(0, 2, 'org.csagroup.tests.AddToCart_CheckOutTest')
-data.setCell(0, 3, 152461);
+data.setCell(0, 3, 180061);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -253,11 +253,11 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">addToCartAndCheckOut</span>
-                <span class="method-start">23148 ms</span>
+                <span class="method-start">23589 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">175632 ms</span>
+                <span class="method-start">203684 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
