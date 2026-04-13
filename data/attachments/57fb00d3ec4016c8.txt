@@ -1,0 +1,7 @@
+Exception: org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.17.0-1010-azure', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1c1414992f441ee75b3a56d75d0c4135, executeScript {script=arguments[0].click();, args=[{element-6066-11e4-a52e-4f735466cecf=f.EF18F4A578AC4F16698BB9AB9DE18F06.d.D3BF32CD3092A56223EC13C3B2ECF7F7.e.140}]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.177, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36349}, goog:processID: 4386, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36349/devtoo..., se:cdpVersion: 146.0.7680.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1c1414992f441ee75b3a56d75d0c4135
