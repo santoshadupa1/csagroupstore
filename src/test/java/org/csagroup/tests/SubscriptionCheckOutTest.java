@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import io.qameta.allure.Story;
 
-public class ScriptionCheckOutTest extends DriverManager {
+public class SubscriptionCheckOutTest extends DriverManager {
 	
 	ProductsPage productsPage;
 	PropertyReader prop = new PropertyReader();

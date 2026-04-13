@@ -24,4 +24,9 @@
       <class name="org.csagroup.tests.OnDemandTest"/>
     </classes>
   </test> <!-- Test -->
+  <test name="SubscriptionTest">
+    <classes>
+      <class name="org.csagroup.tests.SubscriptionCheckOutTest"/>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
