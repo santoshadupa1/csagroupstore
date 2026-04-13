@@ -1,6 +1,5 @@
 package org.csagroup.allureutility;
 
-import io.qameta.allure.Attachment;
 
 import org.csgroup.drivers.DriverManager;
 import org.openqa.selenium.*;
