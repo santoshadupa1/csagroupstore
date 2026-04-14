@@ -1,4 +1,5 @@
 org\csagroup\tests\OnDemandTest.class
 org\csagroup\tests\LoginTest.class
+org\csagroup\tests\SubscriptionCheckOutTest.class
 org\csagroup\tests\CreateAccountTest.class
 org\csagroup\tests\AddToCart_CheckOutTest.class

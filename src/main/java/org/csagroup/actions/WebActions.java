@@ -179,6 +179,11 @@ public class WebActions {
         wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
         highLightElement(elementBy);
     }
+    // Wait for element to Presence
+    public void waitForElementToPresnece(By elementBy) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(elementBy));
+        highLightElement(elementBy);
+    }
 
     // Wait for element to be clickable
     public void waitForElementToClick(By elementBy) {

@@ -1,26 +1,41 @@
 package org.csagroup.allureutility;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
 import org.csgroup.drivers.DriverManager;
-import org.openqa.selenium.*;
-import org.testng.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 
-public class AllureListener implements ITestListener {
+import io.qameta.allure.Allure;
 
-	AllureCaptureScreenshot allureUtil;
+
+public class AllureListener extends DriverManager implements ITestListener {
+
+	//AllureCaptureScreenshot allureUtil;
 	
-	    @Override
+		@Override
 	    public void onTestFailure(ITestResult result) {
-
-	        WebDriver driver = DriverManager.driver;
-
+	        WebDriver driver=null;
+			try {
+				driver = DriverManager.getDriver();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} // MUST be static thread-safe
+	
 	        if (driver != null) {
-	        	AllureCaptureScreenshot.attachScreenshot("Failure Screenshot", driver);
+	            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);	
+	            Allure.addAttachment("Failure Screenshot", "image/png", new ByteArrayInputStream(screenshot), ".png");
 	        }
-
-	        AllureCaptureScreenshot.attachLog("Test Failed: " + result.getName());
-	        AllureCaptureScreenshot.attachLog("Exception: " + result.getThrowable());
+	
+	        Allure.addAttachment("Failure Log", result.getThrowable().toString());
 	    }
+
 
 	    @Override
 	    public void onTestSuccess(ITestResult result) {
