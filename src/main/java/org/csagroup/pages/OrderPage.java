@@ -27,13 +27,13 @@ public class OrderPage extends WebActions implements CSALocators {
     By clearCartButton = By.xpath(ClearCartBtn);
     By yesClearCartButton = By.xpath(ClearCartConfirmationBtn);
     
-    By ordernumber = By.xpath(OrderNumber);
-    By ordersuccessmessage = By.xpath(OrderSuccessMessage);
+    public By ordernumber = By.xpath(OrderNumber);
+    public By ordersuccessmessage = By.xpath(OrderSuccessMessage);
     
     public void clickOnOrderViewContinueBtn()
     {
     	scrollIntoView(orderViewContinueButton);
-    	click(orderViewContinueButton);
+    	javaScriptClick(orderViewContinueButton);
     	System.out.println("Click on continue button");
     }
     
@@ -75,28 +75,28 @@ public class OrderPage extends WebActions implements CSALocators {
     public void clickOnEditCartBtn()
     {
     	scrollIntoView(paymentmethodEditCart);
-    	click(paymentmethodEditCart);
+    	javaScriptClick(paymentmethodEditCart);
     	System.out.println("Click on Edit Cart button");
     }
     
     public void clickOnLeaveCheckoutBtn()
     {
     	scrollIntoView(leavecheckoutButtton);
-    	click(leavecheckoutButtton);
+    	javaScriptClick(leavecheckoutButtton);
     	System.out.println("Click on checkout button");
     }
     
     public void clickOnClearCartBtn()
     {
     	//scrollIntoView(checkoutbtn);
-    	click(clearCartButton);
+    	javaScriptClick(clearCartButton);
     	System.out.println("Click on checkout button");
     }
     
     public void clickOnClearCartConfirmationBtn()
     {
     	waitForElementToAppear(yesClearCartButton);
-    	click(yesClearCartButton);
+    	javaScriptClick(yesClearCartButton);
     	System.out.println("Clear Cart Confirmation - Click on Yes button");
     }
 

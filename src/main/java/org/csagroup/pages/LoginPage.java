@@ -78,13 +78,13 @@ public class LoginPage extends WebActions implements CSALocators{
 		logger.info("click on Login button");
 		//scrollIntoView();
 		writeText(username, uname);
-		AllureCaptureScreenshot.attachLog("Enter the Username: " + uname);
+		AllureCaptureScreenshot.step("Enter the Username: " + uname);
 		System.out.println("Enter the username: " +uname);
 		writeText(password, pswd);
-		AllureCaptureScreenshot.attachLog("Enter the password: " + pswd);
+		AllureCaptureScreenshot.step("Enter the password: " + pswd);
 		System.out.println("Enter the password: " +pswd);
 		javaScriptClick(loginbtn);
-		AllureCaptureScreenshot.attachLog("Click on Login button");
+		AllureCaptureScreenshot.step("Click on Login button");
 		System.out.println("click login button action is completed");
 	}
     @Step("Click on Login/Register button")
@@ -100,14 +100,14 @@ public class LoginPage extends WebActions implements CSALocators{
 	public void CreateAccount()
 	{
 		javaScriptClick(createaccount);
-		AllureCaptureScreenshot.attachLog("Clicked on the Create Account button");
+		AllureCaptureScreenshot.step("Clicked on the Create Account button");
 		System.out.println("Click on the create account button is  clicked");
 	}
     @Step("Click on LogOut button")
 	public void Logout()
 	{
 		javaScriptClick(Logout);
-		AllureCaptureScreenshot.attachLog("Clicked on Logout button");
+		AllureCaptureScreenshot.step("Clicked on Logout button");
 		System.out.println("Click on the logout button is  clicked");
 	}
     
@@ -133,7 +133,7 @@ public class LoginPage extends WebActions implements CSALocators{
 		if(getAcceptAllAlertSize()>0)
 		{
 			javaScriptClick(AcceptAllCookies);
-			AllureCaptureScreenshot.attachLog("Accept All Cookies Alert is Displayed and Clicked");
+			AllureCaptureScreenshot.step("Accept All Cookies Alert is Displayed and Clicked");
 			System.out.println("Accept All Cookies Alert is Displayed and Clicked");
 		}
 	}
@@ -145,7 +145,7 @@ public class LoginPage extends WebActions implements CSALocators{
 		highLightElement(loginRegister);
 		String actualUsername = driver.findElement(loginRegister).getText().trim();
 		//Assert.assertTrue(actualUsername.contains(expectedUsername), "Logged in username does not match expected username.");
-		AllureCaptureScreenshot.attachLog("Logged in Usernane is verified successfully: " +actualUsername);
+		AllureCaptureScreenshot.step("Logged in Usernane is verified successfully: " +actualUsername);
 		System.out.println("Logged in Usernane is verified successfully: " +actualUsername);
 	}
 	
@@ -156,11 +156,11 @@ public class LoginPage extends WebActions implements CSALocators{
 			writeText(securitycode, code);
 			System.out.println("Enter the security code: " +code);
 			javaScriptClick(securitycodeSubmit);
-			AllureCaptureScreenshot.attachLog("Click on the security code submit button");
+			AllureCaptureScreenshot.step("Click on the security code submit button");
 			System.out.println("Click on the security code submit button");
 		} catch (Throwable t) {
 			// If security code is not present or timing differs, log and continue (tests may skip it)
-			AllureCaptureScreenshot.attachLog("Security code submit not available or timed out: " + t.getMessage());
+			AllureCaptureScreenshot.step("Security code submit not available or timed out: " + t.getMessage());
 			System.out.println("Security code submit not available or timed out: " + t.getMessage());
 		}
 	}
@@ -170,16 +170,16 @@ public class LoginPage extends WebActions implements CSALocators{
 
 	        try {
 	            writeText(securitycode, code);
-	            AllureCaptureScreenshot.attachLog("Security code entered: " + code);
+	            AllureCaptureScreenshot.step("Security code entered: " + code);
 	            System.out.println("Security code entered: " + code);
 	            javaScriptClick(securitycodeSubmit);
-	            AllureCaptureScreenshot.attachLog("Security code is Submitted");
+	            AllureCaptureScreenshot.step("Security code is Submitted");
 	            System.out.println("Security code submitted");
 	        } catch (TimeoutException e) {
-	        	AllureCaptureScreenshot.attachLog("Security code not displayed → skipping");
+	        	AllureCaptureScreenshot.step("Security code not displayed → skipping");
 	            System.out.println("Security code not displayed → skipping");
 	        } catch (Throwable t) {
-	        	AllureCaptureScreenshot.attachLog("Security code handling issue (ignored): " + t.getMessage());
+	        	AllureCaptureScreenshot.step("Security code handling issue (ignored): " + t.getMessage());
 	        	System.out.println("Security code handling issue (ignored): " + t.getMessage());
 	        }
 	 }

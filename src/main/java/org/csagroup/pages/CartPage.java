@@ -24,8 +24,8 @@ public class CartPage extends WebActions implements CSALocators {
     By shippingcost = By.xpath(ShippingCost);
     By orderviewshippingcost = By.xpath(OrderView_ShippingCost);
     By orderViewContinueButton = By.xpath(OrderReViewContinueBtn);
-    By orderviewhtstax = By.xpath(OrderView_HTSTax);
-    By paymentmethodTotal = By.xpath(PaymentMethod_Total);
+    public By orderviewhtstax = By.xpath(OrderView_HTSTax);
+    public By paymentmethodTotal = By.xpath(PaymentMethod_Total);
     By paymentmethodContinueBtn = By.xpath(PaymentMethodContinueBtn);
     
     By paymentmethodEditCart = By.xpath(PaymentMethod_EditCartBtn);
@@ -60,6 +60,7 @@ public class CartPage extends WebActions implements CSALocators {
     
     public void clickOnContinueBtn()
     {
+    	waitForElementToPresnece(continueBtn);
     	scrollIntoView(continueBtn);
     	javaScriptClick(continueBtn);
     	System.out.println("Click on continue button");
@@ -67,6 +68,7 @@ public class CartPage extends WebActions implements CSALocators {
     
     public void clickOnCheckoutContinueBtn()
     {
+    	waitForElementToPresnece(checkoutContinueBtn);
     	scrollIntoView(checkoutContinueBtn);
     	javaScriptClick(checkoutContinueBtn);
     	System.out.println("Click on continue button");
@@ -74,6 +76,7 @@ public class CartPage extends WebActions implements CSALocators {
     
     public void clickOnOrderViewContinueBtn()
     {
+    	waitForElementToPresnece(orderViewContinueButton);
     	scrollIntoView(orderViewContinueButton);
     	javaScriptClick(continueBtn);
     	System.out.println("Click on continue button");
@@ -132,14 +135,14 @@ public class CartPage extends WebActions implements CSALocators {
     {
     	scrollIntoView(leavecheckoutButtton);
     	javaScriptClick(leavecheckoutButtton);
-    	System.out.println("Click on checkout button");
+    	System.out.println("Click on Leave checkout button");
     }
     
     public void clickOnClearCartBtn()
     {
     	//scrollIntoView(checkoutbtn);
     	javaScriptClick(clearCartButton);
-    	System.out.println("Click on checkout button");
+    	System.out.println("Click on Clear cart button");
     }
     
     public void clickOnClearCartConfirmationBtn()
