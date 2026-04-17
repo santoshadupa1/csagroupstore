@@ -1,1 +1,0 @@
-java.lang.AssertionError: Product not found: CSA C22.1:24 expected [true] but found [false]
