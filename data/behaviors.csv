@@ -1,6 +1,6 @@
 "Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
 "","Authentication","Verify login with valid user","0","0","1","0","0"
+"","","Add To Cart Functionality","0","1","0","0","0"
+"","","Add To Cart for Scription Product","0","1","0","0","0"
 "","","Verify CSA OnDemandPage","0","0","1","0","0"
 "","","Verify Create Account Functionality","0","0","1","0","0"
-"","","Add To Cart for Scription Product","0","1","0","0","0"
-"","","Add To Cart Functionality","0","1","0","0","0"
