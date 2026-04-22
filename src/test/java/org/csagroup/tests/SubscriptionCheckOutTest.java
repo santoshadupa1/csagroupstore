@@ -18,7 +18,7 @@ public class SubscriptionCheckOutTest extends DriverManager {
 	OrderPage orderPage;
 	
 	@Test
-	@Story("Add To Cart for Scription Product")
+	@Story("Add To Cart for Subscription Product")
 	public void verifyScriptionCheckout()
 	{
 		lp.clickOnLogin();	
