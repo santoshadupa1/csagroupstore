@@ -1,0 +1,1 @@
+java.lang.RuntimeException: shippingMethod container missing on page — cart may have < 2 items or page did not load correctly
