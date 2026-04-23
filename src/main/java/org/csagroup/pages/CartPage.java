@@ -137,71 +137,21 @@ public class CartPage extends WebActions implements CSALocators {
 	// ─────────────────────────────────────────────
 	// ✅ PRIMARY FIX: Shipping Cost Verification
 	// ─────────────────────────────────────────────
-	public void verifyShippingCostIsDisplayed() {
-		System.out.println("Current URL: " + driver.getCurrentUrl());
-
-		// Step 1: Wait for shippingMethod parent container to be present
-		try {
-			wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.xpath("//*[@id='shippingMethod']")
-			));
-			System.out.println("shippingMethod parent container found");
-		} catch (Exception e) {
-			// Dump all element IDs on page for diagnosis
-			System.out.println("shippingMethod NOT found. Dumping page element IDs:");
-			List<WebElement> allIds = driver.findElements(By.xpath("//*[@id]"));
-			for (WebElement el : allIds) {
-				String id = el.getAttribute("id");
-				if (id != null && !id.isEmpty()) {
-					System.out.println("  id=" + id + " tag=" + el.getTagName());
-				}
-			}
-			throw new RuntimeException("shippingMethod container missing on page — "
-				+ "cart may have < 2 items or page did not load correctly", e);
-		}
-
-		// Step 2: Dump all divs inside shippingMethod to find correct child index
-		List<WebElement> shippingDivs = driver.findElements(
-			By.xpath("//*[@id='shippingMethod']/div")
-		);
-		System.out.println("Total divs inside #shippingMethod: " + shippingDivs.size());
-		for (int i = 0; i < shippingDivs.size(); i++) {
-			System.out.println("  div[" + (i + 1) + "] text: " 
-				+ shippingDivs.get(i).getText().replaceAll("\\s+", " ").trim());
-		}
-
-		// Step 3: Try primary locator first, then fallback to any visible div
-		WebElement shippingElement = null;
-		try {
-			shippingElement = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(shippingcost)
-			);
-			System.out.println("Shipping cost found via primary locator");
-		} catch (Exception e) {
-			System.out.println("Primary shippingcost locator failed. Trying fallback divs...");
-			// Fallback: grab whichever div inside shippingMethod has visible text
-			for (int i = 0; i < shippingDivs.size(); i++) {
-				String text = shippingDivs.get(i).getText().trim();
-				if (!text.isEmpty()) {
-					shippingElement = shippingDivs.get(i);
-					System.out.println("Fallback: using div[" + (i + 1) + "] text=" + text);
-					break;
-				}
-			}
-			if (shippingElement == null) {
-				throw new RuntimeException(
-					"No visible child divs found inside #shippingMethod — "
-					+ "shipping section did not render. "
-					+ "Likely cause: physical product not in cart, cart has < 2 items, "
-					+ "or shipping is not applicable for this product type.", e);
-			}
-		}
-
-		boolean isDisplayed = shippingElement.isDisplayed();
-		String shippingCostValue = shippingElement.getText();
-		System.out.println("Shipping cost is displayed: " + isDisplayed);
-		System.out.println("Shipping cost value: " + shippingCostValue);
-	}
+	public void verifyShippingCostIsDisplayed()
+    {
+    	try {
+    		WebElement shippingElement = wait.until(
+    			ExpectedConditions.visibilityOfElementLocated(shippingcost)
+    		);
+    		boolean isDisplayed = shippingElement.isDisplayed();
+    		System.out.println("Shipping cost is displayed: " + isDisplayed);
+    		String shippingCostValue = shippingElement.getText();
+    		System.out.println("Shipping cost value: " + shippingCostValue);
+    	} catch (Exception e) {
+    		System.out.println("Shipping cost element not found within timeout. XPath: " + ShippingCost);
+    		throw e;
+    	}
+    }
 
 	// ─────────────────────────────────────────────
 	// Order View
