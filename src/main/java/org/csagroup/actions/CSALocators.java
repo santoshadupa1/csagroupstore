@@ -71,4 +71,9 @@ public interface CSALocators {
         public String ViewOnlineButton = "//*[@class='panel-collapse collapse mylib-collapse in']/div/div[1]/div/a[2]";
         public String CSAAdvantageLibrary ="//*[@data-aura-class='cCSAAdvantageLink']";
         public String OrderViewContinueButton ="//button[@id='free_placeOrder_top']";
+        // Login credentials
+        public String OnDemandUsername ="//input[@placeholder='Username']";
+        public String OnDemandPassword= "//input[@placeholder='Password']";
+        public String OnDemandLogin = "button[class*='uiButton']";
+        public String OnDemandForgotPassword = "//a[text()='Forgot your password?']";
 }

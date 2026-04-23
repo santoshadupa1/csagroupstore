@@ -1,89 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-14T08:36:42 IST" name="Suite" finished-at="2026-04-14T08:47:22 IST" duration-ms="639695">
+  <suite started-at="2026-04-23T09:43:13 IST" name="Default suite" finished-at="2026-04-23T09:46:39 IST" duration-ms="205455">
     <groups>
     </groups>
-    <test started-at="2026-04-14T08:36:42 IST" name="LoginTest" finished-at="2026-04-14T08:37:30 IST" duration-ms="48056">
-      <class name="org.csagroup.tests.LoginTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.LoginTest@51bf5add]" started-at="2026-04-14T08:36:42 IST" name="setup" finished-at="2026-04-14T08:36:56 IST" duration-ms="13499" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyLoginUser()[pri:0, instance:org.csagroup.tests.LoginTest@51bf5add]" started-at="2026-04-14T08:36:56 IST" name="verifyLoginUser" finished-at="2026-04-14T08:37:30 IST" duration-ms="34055" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginUser -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.LoginTest@51bf5add]" started-at="2026-04-14T08:37:30 IST" name="tearDown" finished-at="2026-04-14T08:37:30 IST" duration-ms="314" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.LoginTest -->
-    </test> <!-- LoginTest -->
-    <test started-at="2026-04-14T08:37:30 IST" name="AddToCartTest" finished-at="2026-04-14T08:41:22 IST" duration-ms="231606">
+    <test started-at="2026-04-23T09:43:13 IST" name="Default test" finished-at="2026-04-23T09:46:39 IST" duration-ms="205455">
       <class name="org.csagroup.tests.AddToCart_CheckOutTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@4d518b32]" started-at="2026-04-14T08:37:30 IST" name="setup" finished-at="2026-04-14T08:37:40 IST" duration-ms="9372" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5db6b9cd]" started-at="2026-04-23T09:43:14 IST" name="setup" finished-at="2026-04-23T09:43:24 IST" duration-ms="10663" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@4d518b32]" started-at="2026-04-14T08:37:40 IST" name="addToCartAndCheckOut" finished-at="2026-04-14T08:41:21 IST" duration-ms="221897" status="PASS">
+        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5db6b9cd]" started-at="2026-04-23T09:43:24 IST" name="addToCartAndCheckOut" finished-at="2026-04-23T09:46:38 IST" duration-ms="193998" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToCartAndCheckOut -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@4d518b32]" started-at="2026-04-14T08:41:21 IST" name="tearDown" finished-at="2026-04-14T08:41:22 IST" duration-ms="324" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5db6b9cd]" started-at="2026-04-23T09:46:38 IST" name="tearDown" finished-at="2026-04-23T09:46:39 IST" duration-ms="588" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- org.csagroup.tests.AddToCart_CheckOutTest -->
-    </test> <!-- AddToCartTest -->
-    <test started-at="2026-04-14T08:41:22 IST" name="CreateAccountTest" finished-at="2026-04-14T08:42:05 IST" duration-ms="42843">
-      <class name="org.csagroup.tests.CreateAccountTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.CreateAccountTest@7354b8c5]" started-at="2026-04-14T08:41:22 IST" name="setup" finished-at="2026-04-14T08:41:32 IST" duration-ms="10181" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="createAccountTest()[pri:0, instance:org.csagroup.tests.CreateAccountTest@7354b8c5]" started-at="2026-04-14T08:41:32 IST" name="createAccountTest" finished-at="2026-04-14T08:42:04 IST" duration-ms="32393" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createAccountTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.CreateAccountTest@7354b8c5]" started-at="2026-04-14T08:42:04 IST" name="tearDown" finished-at="2026-04-14T08:42:05 IST" duration-ms="251" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.CreateAccountTest -->
-    </test> <!-- CreateAccountTest -->
-    <test started-at="2026-04-14T08:42:05 IST" name="OnDemandTest" finished-at="2026-04-14T08:43:48 IST" duration-ms="103145">
-      <class name="org.csagroup.tests.OnDemandTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.OnDemandTest@2b72cb8a]" started-at="2026-04-14T08:42:05 IST" name="setup" finished-at="2026-04-14T08:42:14 IST" duration-ms="9432" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyCSAOnDemandPage()[pri:0, instance:org.csagroup.tests.OnDemandTest@2b72cb8a]" started-at="2026-04-14T08:42:14 IST" name="verifyCSAOnDemandPage" finished-at="2026-04-14T08:43:48 IST" duration-ms="93431" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCSAOnDemandPage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.OnDemandTest@2b72cb8a]" started-at="2026-04-14T08:43:48 IST" name="tearDown" finished-at="2026-04-14T08:43:48 IST" duration-ms="273" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.OnDemandTest -->
-    </test> <!-- OnDemandTest -->
-    <test started-at="2026-04-14T08:43:48 IST" name="SubscriptionTest" finished-at="2026-04-14T08:47:22 IST" duration-ms="213975">
-      <class name="org.csagroup.tests.SubscriptionCheckOutTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.SubscriptionCheckOutTest@420a85c4]" started-at="2026-04-14T08:43:48 IST" name="setup" finished-at="2026-04-14T08:43:57 IST" duration-ms="9278" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyScriptionCheckout()[pri:0, instance:org.csagroup.tests.SubscriptionCheckOutTest@420a85c4]" started-at="2026-04-14T08:43:57 IST" name="verifyScriptionCheckout" finished-at="2026-04-14T08:47:21 IST" duration-ms="204393" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyScriptionCheckout -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.SubscriptionCheckOutTest@420a85c4]" started-at="2026-04-14T08:47:21 IST" name="tearDown" finished-at="2026-04-14T08:47:22 IST" duration-ms="293" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.csagroup.tests.SubscriptionCheckOutTest -->
-    </test> <!-- SubscriptionTest -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

@@ -25,32 +25,69 @@ public class CreateAccountTest extends DriverManager
 		AllureCaptureScreenshot.step("Click on Create Account button");
 		String dynamicName = registrationPage.generateDynamicValue("test");
 	    String email = "csaqatest" + "+" + dynamicName.substring(4) + "@gmail.com";
-	    registrationPage.enterFirstName(dynamicName);
-	    AllureCaptureScreenshot.step("Enter the First Name :" +dynamicName);
-		registrationPage.enterLastName(prop.getProperty("LastName"));
-		AllureCaptureScreenshot.step("Enter the Last Name :" +prop.getProperty("LastName"));
-		registrationPage.selectCountry(prop.getProperty("Country"));
-		AllureCaptureScreenshot.step("Select Country as :" +prop.getProperty("Country"));
-		registrationPage.selectProvinceOrState(prop.getProperty("State"));
-		AllureCaptureScreenshot.step("Select the State as :" +prop.getProperty("State"));
-		registrationPage.selectIndustry(prop.getProperty("Industry"));
-		AllureCaptureScreenshot.step("Select the Industry as :" +prop.getProperty("Industry"));
-		registrationPage.enterEmailId(email);
-		AllureCaptureScreenshot.step("Enter the Email as :" +email);
-		registrationPage.enterNewPassword(prop.getProperty("NewPassword"));
-		AllureCaptureScreenshot.step("Enter the New Password as :" +prop.getProperty("NewPassword"));
-		registrationPage.enterConfirmPassword(prop.getProperty("ConfirmPassword"));
-		AllureCaptureScreenshot.step("Enter the ConfirmPassword as :" +prop.getProperty("ConfirmPassword"));
-		registrationPage.clickOnTermsCheckbox();
-		AllureCaptureScreenshot.step("Click on Terms Checkbox");
-		registrationPage.clickOnPrivacyCheckbox();
-		AllureCaptureScreenshot.step("Click on Privacy Checkbox");
-		registrationPage.clickOnCSAGroupCheckbox();
-		AllureCaptureScreenshot.step("Click on CSA Group Checkbox");
-		//registrationPage.clickOnSubmitButton();
-		//AllureCaptureScreenshot.step("Click on Submit Button");
-		//registrationPage.verifyUserCreated(dynamicName);
-		//AllureCaptureScreenshot.step("Verify the User Created");
+	    String environment = prop.getProperty("env").split("#")[0].trim().toLowerCase();
+	    switch(environment)
+	    {
+		    case "stage":
+		    	registrationPage.enterFirstName(dynamicName);
+			    AllureCaptureScreenshot.step("Enter the First Name :" +dynamicName);
+				registrationPage.enterLastName(prop.getProperty("LastName"));
+				AllureCaptureScreenshot.step("Enter the Last Name :" +prop.getProperty("LastName"));
+				registrationPage.selectCountry(prop.getProperty("Country"));
+				AllureCaptureScreenshot.step("Select Country as :" +prop.getProperty("Country"));
+				registrationPage.selectProvinceOrState(prop.getProperty("State"));
+				AllureCaptureScreenshot.step("Select the State as :" +prop.getProperty("State"));
+				registrationPage.selectIndustry(prop.getProperty("Industry"));
+				AllureCaptureScreenshot.step("Select the Industry as :" +prop.getProperty("Industry"));
+				registrationPage.enterEmailId(email);
+				AllureCaptureScreenshot.step("Enter the Email as :" +email);
+				registrationPage.enterNewPassword(prop.getProperty("NewPassword"));
+				AllureCaptureScreenshot.step("Enter the New Password as :" +prop.getProperty("NewPassword"));
+				registrationPage.enterConfirmPassword(prop.getProperty("ConfirmPassword"));
+				AllureCaptureScreenshot.step("Enter the ConfirmPassword as :" +prop.getProperty("ConfirmPassword"));
+				registrationPage.clickOnTermsCheckbox();
+				AllureCaptureScreenshot.step("Click on Terms Checkbox");
+				registrationPage.clickOnPrivacyCheckbox();
+				AllureCaptureScreenshot.step("Click on Privacy Checkbox");
+				registrationPage.clickOnCSAGroupCheckbox();
+				AllureCaptureScreenshot.step("Click on CSA Group Checkbox");
+				registrationPage.clickOnSubmitButton();
+				AllureCaptureScreenshot.step("Click on Submit Button");
+				//registrationPage.verifyUserCreated(dynamicName);
+				registrationPage.waitForTimeToLoad(5);
+				registrationPage.verifyCreatedUser(dynamicName);
+				AllureCaptureScreenshot.step("Verify the User Created");
+	            break;
+	        case "prod":
+	        	registrationPage.enterFirstName(dynamicName);
+	    	    AllureCaptureScreenshot.step("Enter the First Name :" +dynamicName);
+	    		registrationPage.enterLastName(prop.getProperty("LastName"));
+	    		AllureCaptureScreenshot.step("Enter the Last Name :" +prop.getProperty("LastName"));
+	    		registrationPage.selectCountry(prop.getProperty("Country"));
+	    		AllureCaptureScreenshot.step("Select Country as :" +prop.getProperty("Country"));
+	    		registrationPage.selectProvinceOrState(prop.getProperty("State"));
+	    		AllureCaptureScreenshot.step("Select the State as :" +prop.getProperty("State"));
+	    		registrationPage.selectIndustry(prop.getProperty("Industry"));
+	    		AllureCaptureScreenshot.step("Select the Industry as :" +prop.getProperty("Industry"));
+	    		registrationPage.enterEmailId(email);
+	    		AllureCaptureScreenshot.step("Enter the Email as :" +email);
+	    		registrationPage.enterNewPassword(prop.getProperty("NewPassword"));
+	    		AllureCaptureScreenshot.step("Enter the New Password as :" +prop.getProperty("NewPassword"));
+	    		registrationPage.enterConfirmPassword(prop.getProperty("ConfirmPassword"));
+	    		AllureCaptureScreenshot.step("Enter the ConfirmPassword as :" +prop.getProperty("ConfirmPassword"));
+	    		registrationPage.clickOnTermsCheckbox();
+	    		AllureCaptureScreenshot.step("Click on Terms Checkbox");
+	    		registrationPage.clickOnPrivacyCheckbox();
+	    		AllureCaptureScreenshot.step("Click on Privacy Checkbox");
+	    		registrationPage.clickOnCSAGroupCheckbox();
+	    		AllureCaptureScreenshot.step("Click on CSA Group Checkbox");
+	    		
+	            break;
+	        default:
+	            throw new RuntimeException("Invalid environment: " + environment);	         
+	    }
+	    
+		
 	}
 
 }

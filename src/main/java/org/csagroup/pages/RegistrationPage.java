@@ -120,4 +120,12 @@ public class RegistrationPage extends WebActions implements CSALocators {
 	    System.out.println("verifyUserCreated: Checking for user name: " +expectedName);
 	    return isElementPresent(headerName);
 	}
+	
+	public String verifyCreatedUser(String username)
+	{
+		By createuserName = By.xpath("(//span[contains(text(),'"+username+"')])[2]");
+		username = driver.findElement(createuserName).getText().trim();
+		System.out.println("Created User as :" +username);
+		return username;
+	}
 }

@@ -150,4 +150,20 @@ public class CSAOnDemandPage extends WebActions implements CSALocators {
 		javaScriptClick(csaadvantageLibrary);
 		System.out.println("Click on CSA Advantage library link");
 	}
+	
+	/**
+	 * Login Credentials for the OnDemand Page Level
+	 * ***/
+	By ondemandUsername = By.xpath(OnDemandUsername);
+	By ondemandPassword = By.xpath(OnDemandPassword);
+	By ondemandLoginBtn = By.cssSelector(OnDemandLogin);
+	
+	public void OnDemandPageLogin(String username, String password)
+	{
+		writeText(ondemandUsername, username);
+		writeText(ondemandPassword, password);
+		javaScriptClick(ondemandLoginBtn);
+	}
+	
+			
 }
