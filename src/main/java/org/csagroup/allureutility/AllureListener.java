@@ -20,7 +20,7 @@ public class AllureListener extends DriverManager implements ITestListener {
 	
 		@Override
 	    public void onTestFailure(ITestResult result) {
-	        WebDriver driver=null;
+	        //WebDriver driver=null;
 			try {
 				driver = DriverManager.getDriver();
 			} catch (IOException e) {

@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-14T10:46:21 IST" name="Surefire suite" finished-at="2026-04-14T10:49:48 IST" duration-ms="207139">
+  <suite started-at="2026-04-23T09:47:33 IST" name="Surefire suite" finished-at="2026-04-23T09:51:03 IST" duration-ms="210077">
     <groups>
     </groups>
-    <test started-at="2026-04-14T10:46:21 IST" name="Surefire test" finished-at="2026-04-14T10:49:48 IST" duration-ms="207139">
+    <test started-at="2026-04-23T09:47:33 IST" name="Surefire test" finished-at="2026-04-23T09:51:03 IST" duration-ms="210077">
       <class name="org.csagroup.tests.AddToCart_CheckOutTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5d0a1059]" started-at="2026-04-14T10:46:21 IST" name="setup" finished-at="2026-04-14T10:46:33 IST" duration-ms="12056" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5d0a1059]" started-at="2026-04-23T09:47:33 IST" name="setup" finished-at="2026-04-23T09:47:47 IST" duration-ms="13930" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5d0a1059]" started-at="2026-04-14T10:46:33 IST" name="addToCartAndCheckOut" finished-at="2026-04-14T10:49:47 IST" duration-ms="194542" status="PASS">
+        <test-method signature="addToCartAndCheckOut()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5d0a1059]" started-at="2026-04-23T09:47:47 IST" name="addToCartAndCheckOut" finished-at="2026-04-23T09:51:02 IST" duration-ms="195491" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToCartAndCheckOut -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5d0a1059]" started-at="2026-04-14T10:49:47 IST" name="tearDown" finished-at="2026-04-14T10:49:48 IST" duration-ms="374" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.csagroup.tests.AddToCart_CheckOutTest@5d0a1059]" started-at="2026-04-23T09:51:02 IST" name="tearDown" finished-at="2026-04-23T09:51:03 IST" duration-ms="433" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
