@@ -63,6 +63,7 @@ public class DriverManager {
                 : "headed";
 
         boolean isCI = System.getenv("CI") != null;
+        boolean useHeadless = isCI || mode.equals("headless");
 
         switch (browserName) {
 

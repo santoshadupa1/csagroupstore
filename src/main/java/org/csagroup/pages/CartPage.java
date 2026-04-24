@@ -141,8 +141,7 @@ public class CartPage extends WebActions implements CSALocators {
     {
     	try {
     		WebElement shippingElement = wait.until(
-    			ExpectedConditions.visibilityOfElementLocated(shippingcost)
-    		);
+    			ExpectedConditions.visibilityOfElementLocated(shippingcost));
     		boolean isDisplayed = shippingElement.isDisplayed();
     		System.out.println("Shipping cost is displayed: " + isDisplayed);
     		String shippingCostValue = shippingElement.getText();
