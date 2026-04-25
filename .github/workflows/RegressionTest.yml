@@ -37,8 +37,8 @@ jobs:
       - name: Run Regression Suite
         run: |
           mvn clean test \
-          -Denv=${{ github.event.inputs.env }} \
-          -Dbrowser=${{ github.event.inputs.browser }}
+          -Denv=${{ github.event.inputs.env || 'prod' }} \
+          -Dbrowser=${{ github.event.inputs.browser || 'chrome-headless' }}
         continue-on-error: true
 
       # 🔹 Upload raw test reports (debugging + traceability)
@@ -78,7 +78,9 @@ jobs:
       # 🔹 Show results inside GitHub Actions UI
       - name: Add Test Summary
         run: |
+          ENV=${{ github.event.inputs.env || 'prod' }}
+          BROWSER=${{ github.event.inputs.browser || 'chrome-headless' }}
           echo "## 🚀 Test Execution Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- 🌍 Environment: ${{ github.event.inputs.env }}" >> $GITHUB_STEP_SUMMARY
-          echo "- 🌐 Browser: ${{ github.event.inputs.browser }}" >> $GITHUB_STEP_SUMMARY
+          echo "- 🌍 Environment: $ENV" >> $GITHUB_STEP_SUMMARY
+          echo "- 🌐 Browser: $BROWSER" >> $GITHUB_STEP_SUMMARY
           echo "- 📊 [View Allure Report](https://santoshadupa1.github.io/csagroupstore/)" >> $GITHUB_STEP_SUMMARY
